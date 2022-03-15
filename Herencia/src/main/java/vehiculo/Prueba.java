@@ -1,4 +1,4 @@
-package herencia;
+package vehiculo;
 
 /**
  *
@@ -20,6 +20,12 @@ public class Prueba {
         
         
         System.out.println(f1.getAtributos());
+        
+        System.out.println(d1.getAtributos());
+        
+        System.out.println(t1.getAtributos());
+        
+        System.out.println(v1.getAtributos());
     }
     
 }
