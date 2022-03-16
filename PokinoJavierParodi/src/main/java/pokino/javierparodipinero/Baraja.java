@@ -44,8 +44,7 @@ public class Baraja {
         int posicion = Utilidades.numeroAleatorioEntre(0, (listaBaraja.size() - 1));
         
         //Copia la carta de la baraja
-        Carta carta = new Carta(listaBaraja.get(posicion).getValor(), 
-                listaBaraja.get(posicion).getPalo());
+        Carta carta = listaBaraja.get(posicion);
 
         //Borra la carta de la lista
         listaBaraja.remove(posicion);
