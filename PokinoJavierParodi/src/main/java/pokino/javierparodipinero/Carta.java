@@ -6,13 +6,13 @@ import java.util.Objects;
  *
  * @author JaviA
  */
-public class Carta implements Comparable<Carta> {
+public class Carta implements Comparable<Carta>  {
 
     //No procede constructor por defecto por no tener más posibles atributos
     //Tampoco setters, ya que el valor de una carta no debe ser modificado
     //Motivo por el cual sus atributos son final
-    private final Valor valor;
-    private final Palo palo;
+    private Valor valor;
+    private Palo palo;
 
     //Constructor parametrizado
     public Carta(Valor valor, Palo palo) {
@@ -21,8 +21,6 @@ public class Carta implements Comparable<Carta> {
     }
 
     public Carta() {
-        this.valor = Valor.AS;
-        this.palo = Palo.BASTOS;
         
     }
     
