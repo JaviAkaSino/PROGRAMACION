@@ -1,4 +1,4 @@
-package trabajador;
+package trabajadores;
 
 import java.util.ArrayList;
 
