@@ -1,8 +1,5 @@
 package pokino.javierparodipinero;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
  * @author JaviA
@@ -15,19 +12,16 @@ public class Juego {
 
         b1.llenarBaraja();
 
-        //System.out.println(b1);
-        ArrayList<Carta> baraja = b1.barajaLista();
-
-        System.out.println(baraja.size());
+        System.out.println(b1.getBaraja());
 
         //Saca cartas  hasta que se acaben
-        while (baraja.size() > 0) {
-            System.out.println(Baraja.cartaAleatoria(baraja));
+        while (b1.getBaraja().size() > 0) {
+            System.out.println(b1.cartaAleatoria());
         }
 
-        System.out.println(baraja.size());
+        System.out.println(b1.getBaraja().size());
 
-        System.out.println(baraja);
+        System.out.println(b1.barajaLista());
 
     }
 

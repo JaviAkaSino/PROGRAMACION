@@ -1,8 +1,6 @@
 package pokino.javierparodipinero;
 
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.TreeSet;
 import pokino.javierparodipinero.Carta.Palo;
 import pokino.javierparodipinero.Carta.Valor;
 
@@ -13,12 +11,11 @@ import pokino.javierparodipinero.Carta.Valor;
 public class Baraja {
 
     //Cada baraja contiene las 48 cartas diferentes
-    private final Set<Carta> baraja;
+    private final ArrayList<Carta> baraja;
 
     //Constructor por defecto, crea el Set vacío
     public Baraja() {
-        this.baraja = new TreeSet<>();
-
+        this.baraja = new ArrayList<>();
     }
 
     //Llena la baraja con todas las cartas
@@ -28,7 +25,6 @@ public class Baraja {
             for (int j = 0; j < 12; j++) { //Número de valores
 
                 this.baraja.add(new Carta(Valor.values()[j], Palo.values()[i]));
-
             }
         }
     }
@@ -38,19 +34,22 @@ public class Baraja {
         return new ArrayList<>(this.baraja);
     }
 
-    //Devuelve una carta de la baraja en lista y la elimina de ella
-    public static Carta cartaAleatoria(ArrayList<Carta> listaBaraja) {
+    public ArrayList<Carta> getBaraja() {
+        return baraja;
+    }
 
-        int posicion = Utilidades.numeroAleatorioEntre(0, (listaBaraja.size() - 1));
+    //Devuelve una carta de la baraja en lista y la elimina de ella
+    public Carta cartaAleatoria() {
+
+        int posicion = Utilidades.numeroAleatorioEntre(0, (this.baraja.size() - 1));
         
         //Copia la carta de la baraja
-        Carta carta = listaBaraja.get(posicion);
+        Carta carta = this.baraja.get(posicion);
 
         //Borra la carta de la lista
-        listaBaraja.remove(posicion);
+        this.baraja.remove(posicion);
 
         return carta; //Devuelve la carta copiada
-
     }
 
     //Devuelve un array con las 48 cartas dispeustas aleatoriamente

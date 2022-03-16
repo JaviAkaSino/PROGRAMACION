@@ -24,8 +24,6 @@ public class Carta implements Comparable<Carta>  {
         
     }
     
-    
-
     public Valor getValor() {
         return valor;
     }
