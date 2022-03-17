@@ -31,3 +31,10 @@ public class Trabajador {
     }
 
 }
+
+
+/*4.- ¿Qué diferencia existe entre sobrecargar y sobrescribir un método?*/
+
+/*Sobrecargar un método consiste en crear varias versiones de un mismo método, 
+es decir, definir nuevos métodos. Sobreescribir consiste en la ocultación de 
+un método con una nueva definición de ese método.*/
