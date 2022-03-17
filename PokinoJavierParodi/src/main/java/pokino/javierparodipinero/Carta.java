@@ -19,10 +19,6 @@ public class Carta implements Comparable<Carta>  {
         this.valor = valor;
         this.palo = palo;
     }
-
-    public Carta() {
-        
-    }
     
     public Valor getValor() {
         return valor;
