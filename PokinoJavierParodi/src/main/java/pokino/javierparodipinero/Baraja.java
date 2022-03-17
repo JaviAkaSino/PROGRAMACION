@@ -8,17 +8,19 @@ import pokino.javierparodipinero.Carta.Valor;
  *
  * @author JaviA
  */
-public class Baraja {
+public final class Baraja {
 
     //Cada baraja contiene las 48 cartas diferentes
     private final ArrayList<Carta> baraja;
 
-    //Constructor por defecto, crea el Set vacío
+    //Constructor por defecto, crea la baraja completa y ordenada
     public Baraja() {
         this.baraja = new ArrayList<>();
+
+        this.llenarBaraja(); //ESTO CON FINAL ESTÁ BIEN????????
     }
 
-    //Llena la baraja con todas las cartas
+    //Llena la baraja con todas las cartas en orden
     public void llenarBaraja() {
 
         for (int i = 0; i < 4; i++) { //Número de palos
@@ -29,49 +31,63 @@ public class Baraja {
         }
     }
 
-    public ArrayList<Carta> barajaLista() {
+    //Baraja las cartas. Coge una posición aleatoria y la manda al final 'VECES' veces
+    public void barajar() {
 
-        return new ArrayList<>(this.baraja);
+        final int VECES = 100;
+
+        for (int i = 0; i < VECES; i++) {
+
+            this.baraja.add(this.cartaAleatoria());
+        }
     }
 
-    public ArrayList<Carta> getBaraja() {
-        return baraja;
+    public Carta primeraCarta() {
+
+        Carta carta = this.baraja.get(0); //Copia la primera carta de la baraja
+
+        this.baraja.remove(0); //Borra la carta de la lista
+
+        return carta; //Devuelve la carta copiada
+    }
+
+    public Carta cartaPorNumero(int numero) {
+
+        for (Carta carta : this.baraja) { //Recorre la baraja
+
+            if (carta.getValor().equals(Valor.values()[numero - 1])) { //Si la carta tiene el valor dado
+
+                Carta aux = new Carta(carta.getValor(), carta.getPalo()); //Se hace una copia de ella en aux
+
+                this.baraja.remove(carta); //Se saca de la baraja
+
+                return aux; //Se devuelve
+            }
+        }
+        return null;
+    }
+
+    //Indica el numero de cartas que queda en la baraja (tamaño de la lista)
+    public int numeroCartas() {
+
+        return this.baraja.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Baraja: " + baraja;
     }
 
     //Devuelve una carta de la baraja en lista y la elimina de ella
     public Carta cartaAleatoria() {
 
         int posicion = Utilidades.numeroAleatorioEntre(0, (this.baraja.size() - 1));
-        
-        //Copia la carta de la baraja
-        Carta carta = this.baraja.get(posicion);
 
-        //Borra la carta de la lista
-        this.baraja.remove(posicion);
+        Carta carta = this.baraja.get(posicion); //Copia la carta de la baraja
+
+        this.baraja.remove(posicion); //Borra la carta de la lista
 
         return carta; //Devuelve la carta copiada
-    }
-
-    //Devuelve un array con las 48 cartas dispeustas aleatoriamente
-    public Carta[] barajaBarajada() {
-
-        ArrayList<Carta> lista = new ArrayList<>(this.baraja); //Crea una lista de la baraja
-        Carta[] barajaArray = new Carta[48]; //Un array vacío para la baraja
-        int posicion;
-
-        for (int i = 0; i < 48; i++) {
-
-            posicion = Utilidades.numeroAleatorioEntre(0, lista.size() - 1);
-
-            barajaArray[i] = lista.get(posicion); //Se llena en orden aleatorio
-        }
-
-        return barajaArray;
-    }
-
-    @Override
-    public String toString() {
-        return "Baraja: " + baraja;
     }
 
 }

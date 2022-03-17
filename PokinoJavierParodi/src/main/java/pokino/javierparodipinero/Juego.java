@@ -10,18 +10,17 @@ public class Juego {
 
         Baraja b1 = new Baraja();
 
-        b1.llenarBaraja();
+        System.out.println(b1);
+        
+        System.out.println(b1.numeroCartas());
+        
+        System.out.println(b1.numeroCartas());
+        
+        Carton c1 = new Carton();
+        c1.llenarPoker(b1);
+        
+        c1.imprimirCarton();
 
-        System.out.println(b1.getBaraja());
-
-        //Saca cartas  hasta que se acaben
-        while (b1.getBaraja().size() > 0) {
-            System.out.println(b1.cartaAleatoria());
-        }
-
-        System.out.println(b1.getBaraja().size());
-
-        System.out.println(b1.barajaLista());
 
     }
 

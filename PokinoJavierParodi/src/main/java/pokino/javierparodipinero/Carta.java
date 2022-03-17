@@ -11,8 +11,8 @@ public class Carta implements Comparable<Carta>  {
     //No procede constructor por defecto por no tener más posibles atributos
     //Tampoco setters, ya que el valor de una carta no debe ser modificado
     //Motivo por el cual sus atributos son final
-    private Valor valor;
-    private Palo palo;
+    private final Valor valor;
+    private final Palo palo;
 
     //Constructor parametrizado
     public Carta(Valor valor, Palo palo) {
