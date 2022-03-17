@@ -4,7 +4,8 @@ package figuras;
  *
  * @author javiakasino
  */
-public class Figura {
+public abstract class Figura {
+//De las clases abstractas no se pueden crear objetos, sí de sus hijas
 
     protected double base, altura;
 
@@ -37,9 +38,6 @@ public class Figura {
         return "Figura{" + "base=" + base + ", altura=" + altura + '}';
     }
 
-    public double calcularArea() {
-
-        return 0;
-    }
+    public abstract double calcularArea();
 
 }

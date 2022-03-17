@@ -4,7 +4,23 @@ package trabajadores;
  *
  * @author javiakasino
  */
-public class Trabajador {
+
+/*4.- ¿Qué diferencia existe entre sobrecargar y sobrescribir un método?*/
+
+/*Sobrecargar un método consiste en crear varias versiones de un mismo método, 
+es decir, definir nuevos métodos. Sobreescribir consiste en la ocultación de 
+un método con una nueva definición de ese método.
+
++SOBRECARGA:
+    - Firma del método cambia (parámetros)
+    - Propia clase
+
++SOBREESCRITURA:
+    - La firma del método no cambia
+    - Jerarquía de clases
+*/
+
+public abstract class Trabajador {
 
     private String nombre;
     private String apellido1;
@@ -25,16 +41,6 @@ public class Trabajador {
     }
     
     
-
-    public void cotizar() {
-        System.out.println("Cotizando como trabajador");
-    }
+    public abstract void cotizar();
 
 }
-
-
-/*4.- ¿Qué diferencia existe entre sobrecargar y sobrescribir un método?*/
-
-/*Sobrecargar un método consiste en crear varias versiones de un mismo método, 
-es decir, definir nuevos métodos. Sobreescribir consiste en la ocultación de 
-un método con una nueva definición de ese método.*/
