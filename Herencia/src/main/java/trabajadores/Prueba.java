@@ -19,9 +19,9 @@ public class Prueba {
         ArrayList<Trabajador> plantilla = new ArrayList<>();
 
         plantilla.add(c1); //Conversión implícita
-        plantilla.add(co1); //Conversión implícit
-        plantilla.add(c2);
-        plantilla.add(co2);
+        plantilla.add(co1); //Conversión implícita
+        plantilla.add(c2); //Conversión implícita
+        plantilla.add(co2); //Conversión implícita
 
         for (Trabajador t : plantilla) {
 
@@ -31,13 +31,13 @@ public class Prueba {
             //Si t es una instancia de Camarero
             if (t instanceof Camarero) {
 
-                Camarero aux = (Camarero) t; //Conversión explícita
-                
+                Camarero aux = (Camarero) t; //Conversión explícita CUIDADO, si es un chef, dara ClassCastException
+
                 ((Camarero) t).servirMesa("05");
             }
-            
-            if (t instanceof Cocinero) {
- 
+
+            if (t instanceof Cocinero) { //Te aseguras de que es del tipo correcto
+
                 ((Cocinero) t).prepararPlato("Pasta");
             }
         }

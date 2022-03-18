@@ -1,29 +1,28 @@
-package personas;
+package cuentabancaria;
+
+import personas.*;
 
 /**
  *
  * @author javiakasino
  */
 public class Persona {
-    
-    private String nombre, nif;
-    private int edad;
 
-    
+    private String nombre, apellidos, nif;
+
     //Constructor defecto
     public Persona() {
-        this.nombre = "Nombre Apellido";
+        this.nombre = "Nombre";
+        this.apellidos = "Apellido";
         this.nif = "00000000A";
-        this.edad = 18;
-        
+
     }
 
-    
     //Constructor parametrizado
-    public Persona(String nombre, String nif, int edad) {
+    public Persona(String nombre, String apellidos, String nif) {
         this.nombre = nombre;
+        this.apellidos = apellidos;
         this.nif = nif;
-        this.edad = edad;
     }
 
     public String getNombre() {
@@ -42,20 +41,9 @@ public class Persona {
         this.nif = nif;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    
+    @Override
     public String toString() {
-        return "Nombre: " + nombre + ", NIF: " + nif + ", edad: " + edad;
+        return "Nombre: " + nombre + ", NIF: " + nif;
     }
-    
-    
-    
-    
+
 }
