@@ -1,6 +1,4 @@
-package cuentabancaria;
-
-import personas.*;
+package ejercicio12;
 
 /**
  *

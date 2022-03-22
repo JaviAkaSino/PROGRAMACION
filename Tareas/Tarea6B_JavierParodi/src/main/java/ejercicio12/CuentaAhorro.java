@@ -1,4 +1,4 @@
-package cuentabancaria;
+package ejercicio12;
 
 /**
  *

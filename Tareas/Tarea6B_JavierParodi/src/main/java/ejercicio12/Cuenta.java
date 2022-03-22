@@ -1,4 +1,4 @@
-package cuentabancaria;
+package ejercicio12;
 
 import java.util.Random;
 

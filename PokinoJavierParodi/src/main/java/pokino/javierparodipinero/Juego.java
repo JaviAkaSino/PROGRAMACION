@@ -17,7 +17,7 @@ public class Juego {
         System.out.println(b1.numeroCartas());
         
         Carton c1 = new Carton();
-        c1.llenarPoker(b1);
+        
         
         c1.imprimirCarton();
 

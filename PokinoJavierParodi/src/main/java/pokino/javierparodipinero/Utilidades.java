@@ -50,7 +50,7 @@ public class Utilidades {
         return aleatorio;
 
     }
-    
+
     public static void guardarDatosArray(int array[]) {
 
         for (int i = 0; i < array.length; i++) {
@@ -62,7 +62,7 @@ public class Utilidades {
         }
 
     }
-    
+
     public static void mostrarArray(int array[]) {
 
         for (int i = 0; i < array.length; i++) {
@@ -71,42 +71,40 @@ public class Utilidades {
         }
 
     }
-    
+
     public static void mostrarArrayLineal(int array[]) {
 
         for (int i = 0; i < array.length; i++) {
 
             System.out.print(array[i] + " ");
-            
+
             System.out.println("");
         }
 
     }
-    
-    
-        public static void mostrarArrayLinealDouble(double array[]) {
+
+    public static void mostrarArrayLinealDouble(double array[]) {
 
         for (int i = 0; i < array.length; i++) {
 
             System.out.print(array[i] + " ");
-            
+
             System.out.println("");
         }
 
     }
-        
-        public static void mostrarArrayLinealChar(char array[]) {
+
+    public static void mostrarArrayLinealChar(char array[]) {
 
         for (int i = 0; i < array.length; i++) {
 
             System.out.print(array[i] + " ");
-            
+
             System.out.println("");
         }
 
     }
-        
-    
+
     public static void guardarDatosArrayRandom(int array[], int min, int max) {
 
         for (int i = 0; i < array.length; i++) {
@@ -116,9 +114,8 @@ public class Utilidades {
         }
 
     }
-    
-    
-     public static void mostrarArrayString(String array[]) {
+
+    public static void mostrarArrayString(String array[]) {
 
         for (int i = 0; i < array.length; i++) {
 
@@ -126,12 +123,11 @@ public class Utilidades {
         }
 
     }
-    
 
-     public static void guardarDatosArrayString(String array[]) {
+    public static void guardarDatosArrayString(String array[]) {
 
-         Scanner sc = new Scanner(System.in);
-         
+        Scanner sc = new Scanner(System.in);
+
         for (int i = 0; i < array.length; i++) {
 
             System.out.println("Introduce el valor número " + (i + 1));
@@ -141,9 +137,8 @@ public class Utilidades {
         }
 
     }
-     
-     
-     public static void imprimirMatrizInt(int[][] matriz) {
+
+    public static void imprimirMatrizInt(int[][] matriz) {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
@@ -183,7 +178,7 @@ public class Utilidades {
 
     public static void recorrerVecinas(int i, int j, int[][] matriz) {
         //Va de una posición antes a una después en la fila y en la columna
-        for (int k = (i - 1); k <= (i + 1); k++) { 
+        for (int k = (i - 1); k <= (i + 1); k++) {
             for (int l = (j - 1); l <= (j + 1); l++) {
 
                 if (!(k == i && l == j)) { //Descarta el valor de la posición en sí
@@ -191,13 +186,13 @@ public class Utilidades {
                     //Sólo cuenta los valores que están dentro de la matriz
                     if (0 <= k && k < matriz.length && 0 <= l && l < matriz[0].length) {
 
-                        System.out.print(matriz[k][l] + "\t"); 
-                        
+                        System.out.print(matriz[k][l] + "\t");
+
                     } else {
-                        
+
                         System.out.print("\t"); //Si está fuera, deja un espacio
                     }
-                    
+
                 } else {
 
                     System.out.print("X\t"); //Señaliza cuál era el valor
@@ -206,11 +201,10 @@ public class Utilidades {
 
             System.out.println(""); //Salto de línea
         }
-        
+
         System.out.println(""); //Salto de línea
     }
 
-    
     public static void rellenarMatrizIntRandomEntre(int[][] matriz, int min, int max) {
 
         for (int i = 0; i < matriz.length; i++) {
@@ -266,7 +260,43 @@ public class Utilidades {
         }
         return maximo;
     }
-     
-     
-     
+
+    public static int numeroAleatorioEntreExcepto(int min, int max, int excepcion) {
+
+        int numero = numeroAleatorioEntre(min, max);
+
+        if (numero == excepcion) {
+
+            return numeroAleatorioEntreExcepto(min, max, excepcion);
+        } else {
+
+            return numero;
+        }
+
+    }
+
+    public static void llenarArrayPosicionAleatoria(Object[] array) {
+
+        int longitud = array.length;
+
+        Object[] aux = array;
+        
+        
+        
+//        int pareja = Utilidades.numeroAleatorioEntre(contador + 1, 12); //Establece el valor de la pareja
+//
+//        int trio = Utilidades.numeroAleatorioEntreExcepto(contador + 1, 12, pareja); //Establece el valor del trío
+//
+//        for (int i = 0; i < 2; i++) { //Rellenam la fila con la pareja
+//
+//            this.carton[1][i] = b.cartaPorNumero(pareja);
+//        }
+//
+//        for (int i = 2; i < 5; i++) { //Y con el trío
+//
+//            this.carton[1][i] = b.cartaPorNumero(trio);
+//        }
+
+    }
+
 }
