@@ -33,8 +33,9 @@ public class Prueba {
         celulas.add(n1);
         celulas.add(n2);
 
+        
         //Ordenamos la lista por tamaño
-        //Collections.sort(this.celulas, (Celula c1, Celula c2) -> c1.getTamanioMicras().compareTo(c2.getTamanioMicras());
+        //Collections.sort(this.celulas, (Celula c1, Celula c2) -> c1.getTamanioMicras().compareTo(c2.getTamanioMicras()));
 
         //Imprimimos el tipo de cada celula con su metodo abstracto sobreescrito en todas las subclases
         for (Celula c : celulas) {

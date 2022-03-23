@@ -85,6 +85,11 @@ public class CelulaAnimal extends Celula {
         return ("Su forma es " + this.forma);
     }
 
+    @Override
+    public int compareTo(Celula o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public enum Forma {
 
         PIRAMIDAL, ESFERICA, CUBICA, ESTRELLADA, PLANA

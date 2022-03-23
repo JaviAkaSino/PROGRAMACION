@@ -76,4 +76,9 @@ public class CelulaVegetal extends Celula {
         return "Es una célula vegetal";
     }
 
+    @Override
+    public int compareTo(Celula o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

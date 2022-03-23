@@ -98,4 +98,7 @@ public abstract class Celula implements Comparable<Celula>{
 
     public abstract String tipoCelula(); //Método abstracto
 
+    @Override
+    public abstract int compareTo(Celula o);
+
 }
