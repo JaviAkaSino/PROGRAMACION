@@ -274,6 +274,20 @@ public class Utilidades {
         }
 
     }
+    
+    public static int numeroAleatorioEntreExcepto2(int min, int max, int excepcion1, int excepcion2) {
+
+        int numero = numeroAleatorioEntre(min, max);
+
+        if (numero == excepcion1 || numero == excepcion2) {
+
+            return numeroAleatorioEntreExcepto2(min, max, excepcion1, excepcion2);
+        } else {
+
+            return numero;
+        }
+
+    }
 
     public static void llenarArrayPosicionAleatoria(Object[] array) {
 

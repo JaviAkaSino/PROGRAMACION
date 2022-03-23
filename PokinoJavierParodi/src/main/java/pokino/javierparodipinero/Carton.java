@@ -1,5 +1,6 @@
 package pokino.javierparodipinero;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -38,16 +39,18 @@ public final class Carton {
 
         this.carton[0][4] = b.cartaAleatoria();
 
-        //Desordena la fila
+        desordenarFila(0);
     }
 
     public void llenarFull(Baraja b) {
 
-        int pareja = Utilidades.numeroAleatorioEntre(contador + 1, 12); //Establece el valor de la pareja
+        //Controla que el valor de la pareja no sea el del Póker
+        int pareja = Utilidades.numeroAleatorioEntreExcepto(1, 12, contador); //Establece el valor de la pareja
 
-        int trio = Utilidades.numeroAleatorioEntreExcepto(contador + 1, 12, pareja); //Establece el valor del trío
+        //Controla que el valor de la pareja no sea el del Póker ni el de la pareja
+        int trio = Utilidades.numeroAleatorioEntreExcepto2(1, 12, contador, pareja); //Establece el valor del trío
 
-        for (int i = 0; i < 2; i++) { //Rellenam la fila con la pareja
+        for (int i = 0; i < 2; i++) { //Rellena la fila con la pareja
 
             this.carton[1][i] = b.cartaPorNumero(pareja);
         }
@@ -56,32 +59,41 @@ public final class Carton {
 
             this.carton[1][i] = b.cartaPorNumero(trio);
         }
+        
+        desordenarFila(1); //Y los desordena
 
-        //Desordena la fila
     }
+
+    
+    //HACER EL CENTRO 
     
     
-//    public void desordenaFila(int fila){
-//        
-//          
-//        this.carton[fila];
-//        
-//          final int VECES = 100;
-//
-//        for (int i = 0; i < VECES; i++) {
-//
-//            this.baraja.add(this.cartaAleatoria());  
-//            
-//        }
-//        
-//        
-//        int posicion = Utilidades.numeroAleatorioEntre(0, (this.carton[fila].length - 1));
-//
-//        Carta carta = this.baraja.get(posicion); //Copia la carta de la baraja
-//
-//        this.baraja.remove(posicion); //Borra la carta de la lista
-//          
-//    }
+    //RELLENAR EL RESTO DEL CARTON
+    
+    
+
+    //Desordena la fila
+    public void desordenarFila(int fila) {
+
+        ArrayList<Carta> aux = new ArrayList(); //Crea una lista auxiliar
+
+        int posicionAleatoria;
+                
+        for (int i = 0; i < 5; i++) { //Guarda la fila entera en aux
+
+            aux.add(this.carton[fila][i]);
+        }
+
+        for (int i = 0; i < 5; i++) { //Devuelve las cartas al cartón en orden aleatorio
+
+            posicionAleatoria = Utilidades.numeroAleatorioEntre(0, aux.size() - 1);
+            
+            this.carton[fila][i] = aux.get(posicionAleatoria); //Coge carta aleatoria
+            
+            aux.remove(posicionAleatoria); //Copia a cartón y borra de aux (para que no se repitan)
+        }
+
+    }
 
     public void imprimirCarton() {
 
