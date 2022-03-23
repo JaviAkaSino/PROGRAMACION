@@ -15,9 +15,10 @@ public class PalindromoIterativo {
 
         System.out.println("Introduce la palabra");
 
-        palabra = sc.toString();
+        palabra = sc.nextLine();
 
         if (esPalindromo(palabra)) {
+            
             System.out.println("Es un palíndromo");
         } else {
 
@@ -31,7 +32,7 @@ public class PalindromoIterativo {
 
         for (int i = 0; i < palabra.length() / 2; i++) {
 
-            if (palabra.charAt(i) != palabra.charAt(palabra.length() - i)) {
+            if (palabra.charAt(i) != palabra.charAt(palabra.length() - 1 - i)) {
 
                 palindromo = false;
             }

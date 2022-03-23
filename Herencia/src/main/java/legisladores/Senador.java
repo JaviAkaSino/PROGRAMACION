@@ -42,7 +42,7 @@ public class Senador extends Legislador {
     @Override
     public String getCamara() {
 
-        return "Es Diputado";
+        return "Es Senador";
     }
 
 }
