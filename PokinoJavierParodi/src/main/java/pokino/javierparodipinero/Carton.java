@@ -100,7 +100,7 @@ public final class Carton {
         for (int i = 0; i < carton.length; i++) {
             for (int j = 0; j < carton[i].length; j++) {
 
-                System.out.print(carton[i][j] + "\t");
+                System.out.print("\t" + carton[i][j] + "\t");
             }
 
             System.out.println("");
@@ -111,10 +111,27 @@ public final class Carton {
     public Carta[][] getCarton() {
         return carton;
     }
+    
+    public String cartonString() {
+
+        String s = "";
+        
+        for (int i = 0; i < carton.length; i++) {
+            for (int j = 0; j < carton[i].length; j++) {
+
+                s += carton[i][j] + "\t";
+            }
+
+            s += "\n";
+        }
+        s += "\n";
+        
+        return s;
+    }
 
     @Override
     public String toString() {
-        return "Carton{" + "carton=" + Arrays.toString(carton) + '}';
+        return cartonString();
     }
 
 }
