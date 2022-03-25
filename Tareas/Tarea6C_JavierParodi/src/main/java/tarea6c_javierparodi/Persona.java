@@ -13,6 +13,8 @@ public abstract class Persona {
     private String apellidos;
     private NIF nif;
 
+    private static int contador = 0;
+
     public Persona(String nombre, String apellidos, NIF nif) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -20,17 +22,43 @@ public abstract class Persona {
     }
 
     public Persona() {
-        this.nombre = "nombre";
-        this.apellidos = "apellidos";
+        this.nombre = nombreDefault();
+        this.apellidos = apellidoDefault();
         this.nif = new NIF();
+
+        contador++;
     }
-    
-    
-    public void renovarNIF (LocalDate fechaSolicitud){
+
+    private String nombreDefault() {
+
+        String[] lista = {"Juan", "Carlos", "Antonio", "Gabriel",
+            "Eduardo", "Imad", "Javier", "Nacho", "Victoria", "Alvaro"};
+
+        if (lista.length <= contador) { //Cuando el contador llega a la longitud
+
+            contador = 0; //Se pone a 0 para evitar excepción
+        }
         
+        return lista[contador];
+    }
+
+    private String apellidoDefault() {
+
+        String[] lista = {"García", "Sánchez", "Ruiz", "Pérez",
+            "Martínez", "Martín", "González", "Camacho", "Piña", "Fernández"};
+
+        if (lista.length < contador) { //Cuando el contador llega a la longitud
+
+            contador = 0; //Se pone a 0 para evitar excepción
+        }
+        
+        return lista[contador];
+    }
+
+    public void renovarNIF(LocalDate fechaSolicitud) {
+
         this.nif.renovar(fechaSolicitud);
     }
-    
 
     public String getNombre() {
         return nombre;
@@ -58,7 +86,7 @@ public abstract class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + '}';
+        return nombre + " " + apellidos + "\t" + nif;
     }
 
     @Override

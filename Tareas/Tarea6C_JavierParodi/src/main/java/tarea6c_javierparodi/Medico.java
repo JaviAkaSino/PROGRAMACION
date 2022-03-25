@@ -43,7 +43,7 @@ public class Medico extends Empleado {
 
     @Override
     public String toString() {
-        return "Medico{" + super.toString() + "especialidad=" + especialidad + '}';
+        return "-Médico: " + super.toString() + "\nEspecialidad: " + especialidad + " \n\n";
     }
 
     @Override

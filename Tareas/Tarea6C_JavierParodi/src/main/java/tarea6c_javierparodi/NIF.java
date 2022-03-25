@@ -68,14 +68,14 @@ public class NIF {
     }
 
 
-    public void renovar(LocalDate fechaSolicitudRenovacion) {
+    public final void renovar(LocalDate fechaSolicitudRenovacion) {
 
         this.fechaCaducidad = fechaSolicitudRenovacion.plusYears(10);
     }
 
     @Override
     public String toString() {
-        return "NIF: " + this.numero + "-" + this.letra + "\tFecha caducidad=" + fechaCaducidad;
+        return "NIF: " + this.numero + "-" + this.letra + "  Cad:" + fechaCaducidad;
     }
 
     @Override

@@ -28,7 +28,7 @@ public enum Grupo {
 
     @Override
     public String toString() {
-        return "Grupo{" + "irpf=" + irpf + '}';
+        return "\nGrupo " + this.name() + ": IRPF " + irpf + "%";
     }
     
     

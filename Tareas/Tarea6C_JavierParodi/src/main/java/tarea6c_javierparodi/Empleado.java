@@ -1,6 +1,7 @@
 package tarea6c_javierparodi;
 
 import java.util.Objects;
+import java.util.Random;
 
 /**
  *
@@ -18,11 +19,35 @@ public abstract class Empleado extends Persona {
     }
 
     public Empleado() {
-        this.numeroSeguridadSocial = "AN45456454";
-        this.salario = 2000;
+        this.numeroSeguridadSocial = numeroSSRandom();
+        this.salario = salarioRandom();
     }
 
     public abstract double calcularIRPF();
+    
+    
+    private String numeroSSRandom(){ //Crea un número de Seguridad Social aleatorio
+        
+        Random rnd = new Random();
+        String numero = "";
+
+        for (int i = 0; i < 12; i++) {
+
+            numero += String.valueOf(rnd.nextInt(10));
+        }
+        return numero;
+    
+    }
+    
+    private double salarioRandom(){
+        
+        Random rnd = new Random();
+        
+        return Math.round((rnd.nextDouble()*3000+1000)*100.0)/100;//Da un número entre 1000 y 4000
+    }
+    
+    
+    
 
     public String getNumeroSeguridadSocial() {
         return numeroSeguridadSocial;
@@ -42,7 +67,7 @@ public abstract class Empleado extends Persona {
 
     @Override
     public String toString() {
-        return "Empleado{" + super.toString() + "numeroSeguridadSocial=" + numeroSeguridadSocial + ", salario=" + salario + '}';
+        return super.toString() + "\nNº Seguridad Social: " + numeroSeguridadSocial + ", salario: " + salario + "€";
     }
 
     @Override

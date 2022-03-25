@@ -43,7 +43,7 @@ public class Administrativo extends Empleado{
 
     @Override
     public String toString() {
-        return "Administrativo{" + "grupo=" + grupo + '}';
+        return "-Administrativo: " + super.toString() + grupo + "\n\n";
     }
       
    
@@ -51,7 +51,7 @@ public class Administrativo extends Empleado{
     @Override
     public double calcularIRPF() {
         
-        return this.getSalario()*this.grupo.getIrpf()/100;
+        return Math.round((this.getSalario()*this.grupo.getIrpf()/100)*100)/100;
         
     }
 }

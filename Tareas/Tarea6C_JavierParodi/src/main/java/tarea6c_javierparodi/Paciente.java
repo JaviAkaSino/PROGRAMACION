@@ -1,6 +1,5 @@
 package tarea6c_javierparodi;
 
-import java.time.LocalDate;
 import java.util.Random;
 
 /**
@@ -21,7 +20,20 @@ public class Paciente extends Persona {
     }
 
     public Paciente() {
-        this.numeroHistoria = "123456789";
+        this.numeroHistoria = numeroHistoriaRandom();
+    }
+
+    private String numeroHistoriaRandom() { //Crea un número de historia aleatorio
+
+        Random rnd = new Random();
+        String numero = "";
+
+        for (int i = 0; i <= 10; i++) {
+
+            numero += String.valueOf(rnd.nextInt(10));
+        }
+        return numero;
+
     }
 
     public String getNumeroHistoria() {
@@ -34,7 +46,7 @@ public class Paciente extends Persona {
 
     @Override
     public String toString() {
-        return "Paciente{" + "numeroHistoria=" + numeroHistoria + '}';
+        return "-Paciente: " + super.toString() + "\nNº Historia: " + numeroHistoria + "\n\n";
     }
 
     public void tomarMedicina(String medicina) {

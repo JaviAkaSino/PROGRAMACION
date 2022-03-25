@@ -1,6 +1,7 @@
 package tarea6c_javierparodi;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -64,10 +65,21 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return "Hospital{" + super.toString() + "nombre=" + nombre + ", direccion=" + direccion + ", numeroCamas=" + numeroCamas + ", plantilla=" + plantilla + ", pacientes=" + pacientes + '}';
+        return "Hospital " + nombre + "\n" + direccion + "\nNº camas: " + numeroCamas + plantillaString() + pacientesString();
     }
     
     
+    public void ordenarPlantillaNombre(){
+        
+        Collections.sort(this.plantilla, (Empleado e1, Empleado e2) -> e1.getNombre().compareTo(e2.getNombre()));
+
+    }
+    
+    public void ordenarPacientesNombre(){
+        
+        Collections.sort(this.pacientes, (Paciente p1, Paciente p2) -> p1.getNombre().compareTo(p2.getNombre()));
+
+    }
     
 
     public void contratarEmpleado(Empleado emp) {
@@ -78,6 +90,30 @@ public class Hospital {
     public void ingresarPaciente(Paciente paciente) {
 
         this.pacientes.add(paciente);
+    }
+    
+    public String plantillaString(){
+        
+        String plantillaString ="\n\nPlantilla:\n\n";
+        
+        for (int i = 0; i < this.plantilla.size(); i++) {
+            
+            plantillaString += this.plantilla.get(i);
+            
+        }
+        return plantillaString;
+    }
+    
+    public String pacientesString(){
+        
+        String pacientesString ="\n\nPacientes:\n\n";
+        
+        for (int i = 0; i < this.pacientes.size(); i++) {
+            
+            pacientesString += this.pacientes.get(i);
+            
+        }
+        return pacientesString;
     }
 
 }
