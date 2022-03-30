@@ -1,20 +1,149 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vuelos;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author JaviA
  */
-public class Avion {
- /*Tenemos la clase vuelo con 5 artibutos: codigo de vuelo, ciudad origen, 
-    ciudad destino, duracion, lista de pasajeros. 
-    MAIN Generando una lista de vuelos, hay un 
-    -Método estatico que devuelve un MAP
-    que va a contener para cada destino el nº de pasajeros que llegan en total
+public class Vuelo {
+
+    /*Tenemos la clase Vuelo con 5 atributos: codigo de vuelo, ciudad origen, 
+    ciudad destino, duracion, lista de pasajeros. X
+    -MAIN Generando una lista de vuelos
+    -Método estatico que devuelve un MAP que va a contener para cada destino 
+        el nº de pasajeros que llegan en total
     -Repetir metodo pero map ordenado por destinos
-    -Método me permita saber por codigo de vuelo los pasajeros (lista) que hay en ese vuelo*/
+    -Método me permita saber por codigo de vuelo los pasajeros (lista) que hay 
+        en ese vuelo*/
+    
+    
+    private String codigo;
+    private Ciudad origen;
+    private Ciudad destino;
+    private int minutos;
+    private ArrayList<Persona> pasajeros;
+
+    //Constructor por defecto, crea todo random
+    public Vuelo() {
+        this.codigo = codigoRandom();
+        this.origen = ciudadRandom();
+        this.destino = ciudadRandom();
+        this.minutos = numeroRandomEntre(20, 300);
+        this.pasajeros = new ArrayList<>();
+        
+        llenarPasajeros();
+    }
+
+    //Constructor parametrizado
+    public Vuelo(String codigo, Ciudad origen, Ciudad destino, int minutos, ArrayList<Persona> pasajeros) {
+        this.codigo = codigo;
+        this.origen = origen;
+        this.destino = destino;
+        this.minutos = minutos;
+        this.pasajeros = pasajeros;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public Ciudad getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(Ciudad origen) {
+        this.origen = origen;
+    }
+
+    public Ciudad getDestino() {
+        return destino;
+    }
+
+    public void setDestino(Ciudad destino) {
+        this.destino = destino;
+    }
+
+    public int getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(int minutos) {
+        this.minutos = minutos;
+    }
+
+    public ArrayList<Persona> getPasajeros() {
+        return pasajeros;
+    }
+
+    public void setPasajeros(ArrayList<Persona> pasajeros) {
+        this.pasajeros = pasajeros;
+    }
+
+    @Override
+    public String toString() {
+        return "Vuelo{" + "codigo=" + codigo + ", origen=" + origen + ", destino=" + destino + ", minutos=" + minutos + ", pasajeros=" + pasajeros + '}';
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private Ciudad ciudadRandom() {
+
+        return Ciudad.values()[numeroRandomEntre(0, Ciudad.values().length - 1)];
+    }
+
+    private void llenarPasajeros() {
+
+        for (int i = 0; i < 10; i++) {
+
+            pasajeros.add(new Persona());
+
+        }
+    }
+
+    //MÉTODO CREAR CÓDIGO DE VUELO (POR DEFECTO)
+    public static String codigoRandom() {
+
+        Random rnd = new Random();
+        String numero = "";
+
+        for (int i = 0; i < 10; i++) {
+
+            numero += String.valueOf(rnd.nextInt(10));
+        }
+        return numero;
+    }
+
+    //Da un entero aleatorio dado el intervalo
+    public static int numeroRandomEntre(int valorMin, int valorMax) {
+
+        Random numeroAleatorio = new Random();
+        int aleatorio;
+
+        try {
+
+            aleatorio = numeroAleatorio.nextInt(valorMax - valorMin + 1) + valorMin;
+
+        } catch (IllegalArgumentException iae) {
+
+            aleatorio = numeroAleatorio.nextInt(valorMin - valorMax + 1) + valorMax;
+
+        }
+
+        return aleatorio;
+
+    }
+
 }

@@ -1,4 +1,4 @@
-package tarea6c_javierparodi;
+package vuelos;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author javiakasino
  */
-public abstract class Persona {
+public class Persona {
 
     private String nombre;
     private String apellidos;

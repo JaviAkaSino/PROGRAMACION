@@ -1,4 +1,4 @@
-package tarea6c_javierparodi;
+package vuelos;
 
 import java.time.LocalDate;
 import java.util.Objects;
