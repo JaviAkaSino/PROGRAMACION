@@ -59,7 +59,7 @@ public class Paciente extends Persona {
 
         } else {
 
-            System.out.println("El paciente went con San Pedro");
+            System.out.println("El paciente no se ha curado");
         }
     }
 

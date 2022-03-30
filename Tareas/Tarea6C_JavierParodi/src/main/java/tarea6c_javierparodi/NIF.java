@@ -1,10 +1,8 @@
 package tarea6c_javierparodi;
 
 import java.time.LocalDate;
-import java.util.Formatter;
 import java.util.Objects;
 import java.util.Random;
-import javax.swing.text.DateFormatter;
 
 /**
  *
