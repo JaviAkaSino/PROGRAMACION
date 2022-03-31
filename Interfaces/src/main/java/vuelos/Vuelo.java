@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * @author JaviA
  */
-public class Vuelo {
+public class Vuelo implements Comparable<Vuelo> {
 
     /*Tenemos la clase Vuelo con 5 atributos: codigo de vuelo, ciudad origen, 
     ciudad destino, duracion, lista de pasajeros. X
@@ -17,8 +17,6 @@ public class Vuelo {
     -Repetir metodo pero map ordenado por destinos
     -Método me permita saber por codigo de vuelo los pasajeros (lista) que hay 
         en ese vuelo*/
-    
-    
     private String codigo;
     private Ciudad origen;
     private Ciudad destino;
@@ -28,11 +26,11 @@ public class Vuelo {
     //Constructor por defecto, crea todo random
     public Vuelo() {
         this.codigo = codigoRandom();
-        this.origen = ciudadRandom();
-        this.destino = ciudadRandom();
+        this.origen = origenRandom();
+        this.destino = destinoRandom();
         this.minutos = numeroRandomEntre(20, 300);
         this.pasajeros = new ArrayList<>();
-        
+
         llenarPasajeros();
     }
 
@@ -85,28 +83,29 @@ public class Vuelo {
         this.pasajeros = pasajeros;
     }
 
-    @Override
-    public String toString() {
-        return "Vuelo{" + "codigo=" + codigo + ", origen=" + origen + ", destino=" + destino + ", minutos=" + minutos + ", pasajeros=" + pasajeros + '}';
-    }
+    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private Ciudad ciudadRandom() {
+    private Ciudad origenRandom() {
 
         return Ciudad.values()[numeroRandomEntre(0, Ciudad.values().length - 1)];
+    }
+    
+    private Ciudad destinoRandom() {
+                
+        Ciudad dest = Ciudad.AMSTERDAM; //Se inicializa con cualquiera
+        
+        do { //Se le da un valor aleatorio
+
+            dest = Ciudad.values()[numeroRandomEntre(0, Ciudad.values().length - 1)];  
+          
+        } while (this.origen.equals(dest)); //Hasta que sea distinto al origen
+
+        return dest;
     }
 
     private void llenarPasajeros() {
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numeroRandomEntre(10, 20); i++) {
 
             pasajeros.add(new Persona());
 
@@ -144,6 +143,31 @@ public class Vuelo {
 
         return aleatorio;
 
+    }
+    
+    
+    public String pasajerosString(){
+        
+        String pacientesString ="";
+        
+        for (int i = 0; i < this.pasajeros.size(); i++) {
+            
+            pacientesString += this.pasajeros.get(i);
+            
+        }
+        return pacientesString;
+    }
+
+    @Override
+    public int compareTo(Vuelo o) {
+
+        return this.codigo.compareTo(o.codigo);
+
+    }
+    
+    @Override
+    public String toString() {
+        return "\n\n-Vuelo " + codigo + "\n" + origen + " > " + destino + " (" + minutos + " min.)\nPasajeros:\n" +  pasajerosString();
     }
 
 }

@@ -2,6 +2,7 @@ package vuelos;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  *
@@ -33,26 +34,16 @@ public class Persona {
 
         String[] lista = {"Juan", "Carlos", "Antonio", "Gabriel",
             "Eduardo", "Imad", "Javier", "Nacho", "Victoria", "Alvaro"};
-
-        if (lista.length <= contador) { //Cuando el contador llega a la longitud
-
-            contador = 0; //Se pone a 0 para evitar excepción
-        }
         
-        return lista[contador];
+        return lista[numeroRandomEntre(0, lista.length-1)];
     }
 
     private String apellidoDefault() {
 
         String[] lista = {"García", "Sánchez", "Ruiz", "Pérez",
-            "Martínez", "Martín", "González", "Camacho", "Piña", "Fernández"};
-
-        if (lista.length < contador) { //Cuando el contador llega a la longitud
-
-            contador = 0; //Se pone a 0 para evitar excepción
-        }
+            "Martínez", "Martín", "González", "Camacho", "Piña", "Fernández"};  
         
-        return lista[contador];
+        return lista[numeroRandomEntre(0, lista.length-1)];
     }
 
     public void renovarNIF(LocalDate fechaSolicitud) {
@@ -86,7 +77,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return nombre + " " + apellidos + "\t" + nif;
+        return nombre + " " + apellidos + "\t" + nif + "\n";
     }
 
     @Override
@@ -114,4 +105,25 @@ public class Persona {
         return true;
     }
 
+    //Da un entero aleatorio dado el intervalo
+    public static int numeroRandomEntre(int valorMin, int valorMax) {
+
+        Random numeroAleatorio = new Random();
+        int aleatorio;
+
+        try {
+
+            aleatorio = numeroAleatorio.nextInt(valorMax - valorMin + 1) + valorMin;
+
+        } catch (IllegalArgumentException iae) {
+
+            aleatorio = numeroAleatorio.nextInt(valorMin - valorMax + 1) + valorMax;
+
+        }
+
+        return aleatorio;
+
+    }
+    
+    
 }
