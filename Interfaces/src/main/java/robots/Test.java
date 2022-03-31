@@ -20,16 +20,16 @@ public class Test {
 
         }
 
-        System.out.println("Lista");
+        System.out.println("Lista\n");
         imprimirLista(lista);
 
         Collections.sort(lista); //Ordena por vida, el comparable va por vida
 
-        System.out.println("\nLsita por vida");
+        System.out.println("\n\nLista por vida\n");
         imprimirLista(lista);
 
         //Imprimir la cantidad de robots que tienen más del 50% de vida.
-        System.out.println("+50% VIDA");
+        System.out.println("\n\n+50% VIDA\n");
         for (Robot r : lista) {
 
             if (r.getVida() > 50) {
@@ -39,7 +39,7 @@ public class Test {
         }
 
         //Imprimir el número de serie de los TRES robots que tienen mayor porcentaje de vida. 
-        System.out.println("3 con más VIDA");
+        System.out.println("\n\n3 con más VIDA\n");
 
         Collections.sort(lista);
 
@@ -49,21 +49,29 @@ public class Test {
         }
 
         //Además, debe ser posible ordenar los robots por número de serie.
+        
+        System.out.println("\n\nOrdenar por numero de serie\n");
         //Inferencia de tipos
-        System.out.println("Ordenar por numero de serie");
         Comparator<Robot> porSerie = (r1, r2) -> Integer.compare(r1.getNumeroSerie(), r2.getNumeroSerie());
 
+        
+        /*Una vez ordenada la lista por número de serie, realizar búsqueda 
+            binaria de algún robot dentro de la lista.*/
         Collections.sort(lista, porSerie);
 
         imprimirLista(lista);
 
+        if (buscarNS(lista, 10200) >= 0) {
 
-        System.out.println("NS 10200: " + buscarNS(lista, 10200));
-        
+            System.out.println("\n\nNS 10200: " + lista.get(buscarNS(lista, 10200)));
+        }
+
         Collections.sort(lista);
-        System.out.println("Vida 100% " + buscarVida(lista, 100));
-        
-        
+        if (buscarVida(lista, 100) >= 0) {
+
+            System.out.println("\n\nVida 100% " + lista.get(buscarVida(lista, 100)));
+        }
+
     }
 
     public static void imprimirLista(ArrayList<Robot> lista) {
@@ -82,7 +90,7 @@ public class Test {
         return Collections.binarySearch(lista, r, (Robot r1, Robot r2) -> Integer.compare(r1.getNumeroSerie(), r2.getNumeroSerie()));
 
     }
-    
+
     public static int buscarVida(ArrayList<Robot> lista, int vida) {
 
         Robot r = new Robot(0, vida);

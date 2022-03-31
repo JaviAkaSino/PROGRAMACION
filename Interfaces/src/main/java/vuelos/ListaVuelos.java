@@ -3,6 +3,7 @@ package vuelos;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -26,13 +27,20 @@ public class ListaVuelos {
 
         }
 
-        System.out.println(vuelosPorDestino(lista));
+        System.out.println("Pasajeros por destino:");
+        System.out.println(pasajerosPorDestino(lista));
+
+        System.out.println("Pasajeros por destino en orden alfabético:");
+        System.out.println(pasajerosPorDestinoOrden(lista));
+        
+             
+        System.out.println(pasajerosVuelo(lista, "5415541544"));
 
     }
 
     /*Método estatico que devuelve un MAP que va a contener para cada destino 
         el nº de pasajeros que llegan en total*/
-    public static Map<String, Integer> vuelosPorDestino(ArrayList<Vuelo> listaVuelos) {
+    public static Map<String, Integer> pasajerosPorDestino(ArrayList<Vuelo> listaVuelos) {
 
         Map<String, Integer> vuelosDestino = new HashMap<>();
 
@@ -42,7 +50,7 @@ public class ListaVuelos {
 
             for (Vuelo b : listaVuelos) {
 
-                if (v.getDestino().equals(b.getDestino())) {
+                if (v != b && v.getDestino().equals(b.getDestino())) {
 
                     n += b.getPasajeros().size();
                 }
@@ -55,4 +63,45 @@ public class ListaVuelos {
         return vuelosDestino;
     }
 
+    //Repetir metodo pero map ordenado por destinos
+    public static Map<String, Integer> pasajerosPorDestinoOrden(ArrayList<Vuelo> listaVuelos) {
+
+        Map<String, Integer> vuelosDestino = new TreeMap<>();
+
+        for (Vuelo v : listaVuelos) {
+
+            int n = v.getPasajeros().size();
+
+            for (Vuelo b : listaVuelos) {
+
+                if (v != b && v.getDestino().equals(b.getDestino())) {
+
+                    n += b.getPasajeros().size();
+                }
+            }
+
+            vuelosDestino.put(v.getDestino().toString(), n);
+
+        }
+
+        return vuelosDestino;
+    }
+
+    /*Método me permita saber por codigo de vuelo los pasajeros (lista) que hay 
+        en ese vuelo*/
+    public static ArrayList<Persona> pasajerosVuelo(ArrayList<Vuelo> lista, String codigoVuelo) {
+
+        ArrayList<Persona> pasajeros = new ArrayList<>();
+
+        for (Vuelo v : lista) {
+
+            if (v.getCodigo().equals(codigoVuelo)) {
+
+                return v.getPasajeros();
+            }
+
+        }
+
+        return pasajeros;
+    }
 }
