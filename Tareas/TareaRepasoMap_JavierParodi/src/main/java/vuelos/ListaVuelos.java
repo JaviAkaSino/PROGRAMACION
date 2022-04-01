@@ -13,7 +13,7 @@ public class ListaVuelos {
 
     public static void main(String[] args) {
 
-        final int NUMERO_VUELOS = 10; //Elegimos el número de vuelos random
+        final int NUMERO_VUELOS = 20; //Elegimos el número de vuelos random
         ArrayList<Vuelo> lista = new ArrayList<>();
 
         for (int i = 0; i < NUMERO_VUELOS; i++) { //Se crean y añaden a la lista
