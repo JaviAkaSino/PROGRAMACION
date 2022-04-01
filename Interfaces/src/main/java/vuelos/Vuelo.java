@@ -31,7 +31,18 @@ public class Vuelo implements Comparable<Vuelo> {
         this.minutos = numeroRandomEntre(20, 300);
         this.pasajeros = new ArrayList<>();
 
-        llenarPasajeros();
+        llenarPasajeros(10, 20);
+    }
+
+    //Constructor que crea todo random menos el codigo
+    public Vuelo(String codigo) {
+        this.codigo = codigo;
+        this.origen = origenRandom();
+        this.destino = destinoRandom();
+        this.minutos = numeroRandomEntre(20, 300);
+        this.pasajeros = new ArrayList<>();
+
+        llenarPasajeros(10, 20);
     }
 
     //Constructor parametrizado
@@ -83,29 +94,27 @@ public class Vuelo implements Comparable<Vuelo> {
         this.pasajeros = pasajeros;
     }
 
-    
-
-    private Ciudad origenRandom() {
+    private Ciudad origenRandom() { //Devuelve un origen aleatorio del enum
 
         return Ciudad.values()[numeroRandomEntre(0, Ciudad.values().length - 1)];
     }
-    
-    private Ciudad destinoRandom() {
-                
+
+    private Ciudad destinoRandom() { //Devuelve un destino aleatorio del enum
+
         Ciudad dest = Ciudad.AMSTERDAM; //Se inicializa con cualquiera
-        
+
         do { //Se le da un valor aleatorio
 
-            dest = Ciudad.values()[numeroRandomEntre(0, Ciudad.values().length - 1)];  
-          
+            dest = Ciudad.values()[numeroRandomEntre(0, Ciudad.values().length - 1)];
+
         } while (this.origen.equals(dest)); //Hasta que sea distinto al origen
 
         return dest;
     }
 
-    private void llenarPasajeros() {
+    private void llenarPasajeros(int min, int max) { //Llena la lista de pasajeros entre dos numeros dados
 
-        for (int i = 0; i < numeroRandomEntre(10, 20); i++) {
+        for (int i = 0; i < numeroRandomEntre(min, max); i++) {
 
             pasajeros.add(new Persona());
 
@@ -144,16 +153,15 @@ public class Vuelo implements Comparable<Vuelo> {
         return aleatorio;
 
     }
-    
-    
-    public String pasajerosString(){
-        
-        String pacientesString ="";
-        
+
+    public String pasajerosString() {
+
+        String pacientesString = "";
+
         for (int i = 0; i < this.pasajeros.size(); i++) {
-            
+
             pacientesString += this.pasajeros.get(i);
-            
+
         }
         return pacientesString;
     }
@@ -164,10 +172,10 @@ public class Vuelo implements Comparable<Vuelo> {
         return this.codigo.compareTo(o.codigo);
 
     }
-    
+
     @Override
     public String toString() {
-        return "\n\n-Vuelo " + codigo + "\n" + origen + " > " + destino + " (" + minutos + " min.)\nPasajeros:\n" +  pasajerosString();
+        return "\n\n-Vuelo " + codigo + "\n" + origen + " > " + destino + " (" + minutos + " min.)\nPasajeros:\n" + pasajerosString();
     }
 
 }

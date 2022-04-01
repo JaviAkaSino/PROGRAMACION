@@ -30,20 +30,22 @@ public class Persona {
         contador++;
     }
 
+    //Devuelve un nombre aleatorio de la lista
     private String nombreDefault() {
 
         String[] lista = {"Juan", "Carlos", "Antonio", "Gabriel",
             "Eduardo", "Imad", "Javier", "Nacho", "Victoria", "Alvaro"};
-        
-        return lista[numeroRandomEntre(0, lista.length-1)];
+
+        return lista[numeroRandomEntre(0, lista.length - 1)];
     }
 
+    //Devuelve un apellido aleatorio de la lista
     private String apellidoDefault() {
 
         String[] lista = {"García", "Sánchez", "Ruiz", "Pérez",
-            "Martínez", "Martín", "González", "Camacho", "Piña", "Fernández"};  
-        
-        return lista[numeroRandomEntre(0, lista.length-1)];
+            "Martínez", "Martín", "González", "Camacho", "Piña", "Fernández"};
+
+        return lista[numeroRandomEntre(0, lista.length - 1)];
     }
 
     public void renovarNIF(LocalDate fechaSolicitud) {
@@ -124,6 +126,5 @@ public class Persona {
         return aleatorio;
 
     }
-    
-    
+
 }

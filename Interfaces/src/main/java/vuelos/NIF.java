@@ -65,7 +65,6 @@ public class NIF {
         return fechaCaducidad;
     }
 
-
     public final void renovar(LocalDate fechaSolicitudRenovacion) {
 
         this.fechaCaducidad = fechaSolicitudRenovacion.plusYears(10);
