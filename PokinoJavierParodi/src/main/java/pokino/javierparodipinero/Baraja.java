@@ -1,6 +1,7 @@
 package pokino.javierparodipinero;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import pokino.javierparodipinero.Carta.Palo;
 import pokino.javierparodipinero.Carta.Valor;
 
@@ -17,9 +18,15 @@ public final class Baraja {
     public Baraja() {
         this.baraja = new ArrayList<>();
 
-        this.llenarBaraja(); //ESTO CON FINAL ESTÁ BIEN????????
+        this.llenarBaraja(); 
     }
 
+    public ArrayList<Carta> getBaraja() {
+        return baraja;
+    }
+
+    
+    
     //Llena la baraja con todas las cartas en orden
     public void llenarBaraja() {
 
@@ -90,4 +97,10 @@ public final class Baraja {
         return carta; //Devuelve la carta copiada
     }
 
+    //Coge una baraja y dice si la carta esta en ella aun
+    public boolean cartaEnBaraja(Baraja b, Carta c){
+        
+        return b.baraja.contains(c);
+    }
+    
 }

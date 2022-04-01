@@ -12,6 +12,7 @@ public final class Carton {
     private Carta[][] carton;
 
     private static int contador = 1;
+    private static Baraja barajaCentro = new Baraja();
 
     public Carton() {
 
@@ -24,7 +25,9 @@ public final class Carton {
 
             llenarPoker(baraja);
             llenarFull(baraja);
-
+            llenarCentro(baraja);
+            llenarResto(baraja);
+      
             contador++;
         }
 
@@ -59,18 +62,52 @@ public final class Carton {
 
             this.carton[1][i] = b.cartaPorNumero(trio);
         }
-        
+
         desordenarFila(1); //Y los desordena
 
     }
 
-    
     //HACER EL CENTRO 
-    
-    
+    public void llenarCentro(Baraja barajaCarton) { //Se pasa la baraja que usa el carton
+
+        Carta candidata = barajaCentro.cartaAleatoria(); //Saca carta random
+
+        if (cartaEnBaraja(barajaCarton, candidata)) {//Si la carta está aún en la baraja, no está en el cartón
+
+            this.carton[2][2] = candidata; //Se pone en el centro
+
+            //En la baraja del carton, se borra la carta puesta en el centro
+            barajaCarton.getBaraja().remove(candidata);
+
+        } else { //Si ya está en el cartón, la devolvemos y sacamos otra
+
+            barajaCentro.getBaraja().add(candidata);//Devolvemos carta
+
+            llenarCentro(barajaCarton); //Llamada recursiva
+
+        }
+
+    }
+
+    //Coge una baraja y dice si la carta esta en ella aun
+    public boolean cartaEnBaraja(Baraja b, Carta c) {
+
+        return b.getBaraja().contains(c);
+    }
+
     //RELLENAR EL RESTO DEL CARTON
-    
-    
+    public void llenarResto(Baraja b) {
+
+        for (int i = 2; i < carton.length; i++) { //Se salta las dos priemeras filas
+            for (int j = 0; j < carton[i].length; j++) {
+
+                if (!(i == 2 && j == 2)) { //Si no es la casilla central (ya llena)
+
+                    this.carton[i][j] = b.cartaAleatoria();
+                }
+            }
+        }
+    }
 
     //Desordena la fila
     public void desordenarFila(int fila) {
@@ -78,7 +115,7 @@ public final class Carton {
         ArrayList<Carta> aux = new ArrayList(); //Crea una lista auxiliar
 
         int posicionAleatoria;
-                
+
         for (int i = 0; i < 5; i++) { //Guarda la fila entera en aux
 
             aux.add(this.carton[fila][i]);
@@ -87,9 +124,9 @@ public final class Carton {
         for (int i = 0; i < 5; i++) { //Devuelve las cartas al cartón en orden aleatorio
 
             posicionAleatoria = Utilidades.numeroAleatorioEntre(0, aux.size() - 1);
-            
+
             this.carton[fila][i] = aux.get(posicionAleatoria); //Coge carta aleatoria
-            
+
             aux.remove(posicionAleatoria); //Copia a cartón y borra de aux (para que no se repitan)
         }
 
@@ -111,11 +148,11 @@ public final class Carton {
     public Carta[][] getCarton() {
         return carton;
     }
-    
+
     public String cartonString() {
 
         String s = "";
-        
+
         for (int i = 0; i < carton.length; i++) {
             for (int j = 0; j < carton[i].length; j++) {
 
@@ -125,7 +162,7 @@ public final class Carton {
             s += "\n";
         }
         s += "\n";
-        
+
         return s;
     }
 

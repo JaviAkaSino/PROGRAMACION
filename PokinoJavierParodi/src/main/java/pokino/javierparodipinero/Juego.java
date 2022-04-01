@@ -15,8 +15,8 @@ public class Juego {
 
         
    
-//        Carton c1 = new Carton();
-//        Carton c2 = new Carton();
+        Carton c1 = new Carton();
+        Carton c2 = new Carton();
 //        Carton c3 = new Carton();
 //        Carton c4 = new Carton();
 //        Carton c5 = new Carton();
@@ -29,8 +29,8 @@ public class Juego {
 //        Carton c12 = new Carton();
 //        
 //
-//        c1.imprimirCarton();
-//        c2.imprimirCarton();
+        c1.imprimirCarton();
+        c2.imprimirCarton();
 //        c3.imprimirCarton();
 //        c4.imprimirCarton();
 //        c5.imprimirCarton();
