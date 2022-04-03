@@ -109,6 +109,47 @@ public final class Carton {
         }
     }
 
+    public boolean marcarCarta(Carta carta) { //Recorre el cartón entero
+
+        for (int i = 0; i < this.carton.length; i++) {
+            for (int j = 0; j < this.carton[i].length; j++) {
+
+                if (this.carton[i][j].equals(carta)) { //Si la carta está
+
+                    this.carton[i][j].setCantada(true); //La marca como cantada
+
+                    return true; //Y devuelve true
+                }
+
+            }
+        }
+
+        return false; //Si no, devuelve false para no comprobar nuevos premios
+    }
+
+    public boolean comprobarCentro() { //Si ha tocado el centro, devuelve true
+
+        if (this.carton[2][2].isCantada()) {
+
+            return true;
+
+        }
+
+        return false;
+    }
+
+    public boolean comprobarEsquina() { //Si ha tocado la esquina, devuelve true
+
+        if (this.carton[0][0].isCantada() && this.carton[0][4].isCantada()
+                && this.carton[4][0].isCantada() && this.carton[4][4].isCantada()) {
+
+            return true;
+
+        }
+
+        return false;
+    }
+
     //Desordena la fila
     public void desordenarFila(int fila) {
 

@@ -35,6 +35,8 @@ public class Pokino {
     public Map<Integer, Carton> getCartones() {
         return cartones;
     }
+    
+    
 
     public ArrayList<Vaso> getPremios() {
         return premios;
