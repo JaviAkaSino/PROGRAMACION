@@ -1,5 +1,9 @@
 package pokino.javierparodipinero;
 
+import java.awt.font.TextAttribute;
+import java.text.AttributedString;
+import org.apache.commons.exec.util.StringUtils;
+
 /**
  *
  * @author JaviA
@@ -7,44 +11,39 @@ package pokino.javierparodipinero;
 public class Juego {
 
     public static void main(String[] args) {
-//
-//        Pokino pokino = new Pokino();
-//        
-//        pokino.imprimirPokino();
-//        
 
-        
-   
-        Carton c1 = new Carton();
-        Carton c2 = new Carton();
-        Carton c3 = new Carton();
-        Carton c4 = new Carton();
-        Carton c5 = new Carton();
-        Carton c6 = new Carton();
-        Carton c7 = new Carton();
-        Carton c8 = new Carton();
-        Carton c9 = new Carton();
-        Carton c10 = new Carton();
-        Carton c11 = new Carton();
-        Carton c12 = new Carton();
-        
+        //Se establece el número de jugadores
+        int jugadores = 6;
 
-        c1.imprimirCarton();
+        //Se crean los jugadores con su cartón y los vasos vacíos
+        Pokino pokino = new Pokino(jugadores);
 
-        c2.imprimirCarton();
-        c3.imprimirCarton();
-        c4.imprimirCarton();
-        c5.imprimirCarton();
-        c6.imprimirCarton();
-        c7.imprimirCarton();
-        c8.imprimirCarton();
-        c9.imprimirCarton();
-        c10.imprimirCarton();
-        c11.imprimirCarton();
-        c12.imprimirCarton();
+        //SE RELLENAN LOS PREMIOS
+        //Se establece la apuesta
+        double apuesta = 0.5;
+
+        //Se llenan los vasos
+        for (int i = 0; i < 6; i++) {
+
+            pokino.getPremios().get(i).setPremio(jugadores * apuesta);
+        }
         
+        //Sale carta, recorrer carton comparando carta
+        
+        //If equals, set true, atributo boolean de carta para marcarla
+        
+        //If posiciones clave true, se canta el premio correspondiente y premio  a false y set cantidad a 0
+        
+        //While no se cante el pokino o si pokino break
+    
+        //Si caen varios premios de golpe se dan todos, pero si uno de ellos es pokino?
+        //
+        //
+
+        pokino.imprimirPokino();
+        
+        //pokino.getPokino().get(1).getCarton()[2][2].setCantada(true);
 //        Utilidades.recorrerVecinas(0, 0, c1.getCarton());
-
     }
 
 }

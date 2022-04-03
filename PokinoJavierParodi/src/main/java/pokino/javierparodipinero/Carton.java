@@ -27,7 +27,7 @@ public final class Carton {
             llenarFull(baraja);
             llenarCentro(baraja);
             llenarResto(baraja);
-      
+
             contador++;
         }
 
@@ -137,23 +137,20 @@ public final class Carton {
         for (int i = 0; i < carton.length; i++) {
             for (int j = 0; j < carton[i].length; j++) {
 
-                System.out.print( (carton[i][j] + "\t"));
-                
-                if (carton[i][j].toString().length()<16){ //Estética
-                    System.out.print("\t"); 
+                System.out.print((carton[i][j] + "\t"));
+
+                if (carton[i][j].toString().length() < 16) { //Estética
+                    System.out.print("\t");
                 }
-                
             }
 
             System.out.println("\n");
         }
-        System.out.println("");
     }
 
     public Carta[][] getCarton() {
         return carton;
     }
-    
 
     public String cartonString() {
 
@@ -177,5 +174,4 @@ public final class Carton {
         return cartonString();
     }
 
-    
 }
