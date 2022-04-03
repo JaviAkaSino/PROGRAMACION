@@ -1,25 +1,29 @@
 package pokino.javierparodipinero;
 
+import java.awt.font.TextAttribute;
+import java.text.AttributedString;
 import java.util.Objects;
 
 /**
  *
  * @author JaviA
  */
-public class Carta implements Comparable<Carta>  {
+public class Carta implements Comparable<Carta> {
 
     //No procede constructor por defecto por no tener más posibles atributos
     //Tampoco setters, ya que el valor de una carta no debe ser modificado
     //Motivo por el cual sus atributos son final
     private final Valor valor;
     private final Palo palo;
+    private boolean cantada;
 
     //Constructor parametrizado
     public Carta(Valor valor, Palo palo) {
         this.valor = valor;
         this.palo = palo;
+        this.cantada = false;
     }
-    
+
     public Valor getValor() {
         return valor;
     }
@@ -28,9 +32,26 @@ public class Carta implements Comparable<Carta>  {
         return palo;
     }
 
+    public boolean isCantada() {
+        return cantada;
+    }
+
+    public void setCantada(boolean cantada) {
+        this.cantada = cantada;
+    }
+    
+    
+
     @Override
     public String toString() {
-        return valor + " DE " + palo;
+
+        if (cantada) {
+            
+            return "[X] "+valor + " DE " + palo;
+        }
+        
+        return "[ ] " + valor + " DE " + palo;
+
     }
 
     @Override
