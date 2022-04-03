@@ -137,10 +137,15 @@ public final class Carton {
         for (int i = 0; i < carton.length; i++) {
             for (int j = 0; j < carton[i].length; j++) {
 
-                System.out.print("\t" + carton[i][j] + "\t");
+                System.out.print( (carton[i][j] + "\t"));
+                
+                if (carton[i][j].toString().length()<16){ //Estética
+                    System.out.print("\t"); 
+                }
+                
             }
 
-            System.out.println("");
+            System.out.println("\n");
         }
         System.out.println("");
     }
@@ -148,6 +153,7 @@ public final class Carton {
     public Carta[][] getCarton() {
         return carton;
     }
+    
 
     public String cartonString() {
 
@@ -171,4 +177,5 @@ public final class Carton {
         return cartonString();
     }
 
+    
 }
