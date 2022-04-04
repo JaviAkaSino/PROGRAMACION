@@ -38,6 +38,8 @@ public class ListaVuelos {
 
         System.out.println("\n\nPasajeros del vuelo 123456: ");
         System.out.println(pasajerosVuelo(lista, "123456"));
+        
+        Persona p = new Persona(); 
 
     }
 

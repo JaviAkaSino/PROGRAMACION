@@ -150,6 +150,115 @@ public final class Carton {
         return false;
     }
 
+    //ESTAMPA
+    public boolean comprobarEstampa() {
+
+        if (recorrerVecinas(0, 0) || recorrerVecinas(0, 4)
+                || //Si una de las estampas está en true
+                recorrerVecinas(4, 0) || recorrerVecinas(4, 4)) {
+
+            return true; //Devuelve true
+        }
+        return false; //Si no, devuelve false
+    }
+
+    public boolean recorrerVecinas(int i, int j) {
+        //Va de una posición antes a una después en la fila y en la columna, recorriendo las vecinas
+        for (int k = (i - 1); k <= (i + 1); k++) {
+            for (int l = (j - 1); l <= (j + 1); l++) {
+
+                //Sólo cuenta los valores que están dentro de la matriz
+                //En este caso, como pasaremos las posiciones de la esquina,
+                //Cogerá la estampa
+                if (0 <= k && k < this.carton.length && 0 <= l && l < this.carton[0].length) {
+
+                    if (!this.carton[k][l].isCantada()) { //Si alguna de las cartas no está cantada
+
+                        return false; //Devuelve falso
+                    }
+                }
+
+            }
+
+        }
+        return true; //Si todas están a true, devuelve true
+    }
+
+    //POKER
+    public boolean comprobarPoker() {
+
+        if (this.carton[0][0].getValor().equals(this.carton[0][1].getValor())) { //Si la primera es igual que la segunda, son el Poker
+
+            for (int i = 0; i < 5; i++) { //Mira todas las cartas de la primera fila
+
+                if (this.carton[0][0].getValor().equals(this.carton[0][i].getValor())) {//Recorre las cartas de igual valor
+
+                    if (!this.carton[0][i].isCantada()) { //Si alguna no esta cantada
+
+                        return false;
+
+                    }
+
+                } else if (this.carton[0][i].isCantada()) { //Cuando la carta no sea de igual valor, sea la que no es del Poker
+                    //Y esté cantada, false, no hay Póker que valga
+                    return false;
+
+                }
+            }
+
+        } else if (this.carton[0][0].getValor().equals(this.carton[0][2].getValor())) { //Si no lo son
+            //Y la primera es de igual valor que la tercera, son el Poker y la segunda no
+
+            if (this.carton[0][1].isCantada()) { //Si la distinta está cantada
+
+                return false;
+
+            } else { //Si no lo está, hay posibilidades
+
+                for (int i = 0; i < 5; i++) { //Mira todas las cartas de la primera fila
+
+                    if (i != 1 && !this.carton[0][i].isCantada()) {//Si alguna de las que no son la segunda no están cantadas, false
+
+                        return false;
+
+                    } else {
+
+                        return true;
+                    }
+
+                }
+            }
+
+        } else {
+
+            //Sólo queda que la primera sea la que no es del Póker
+            //Si, sin ser la primera, alguna no está cantada, false
+            if (this.carton[0][0].isCantada()) { //Si la distinta está cantada
+
+                return false;
+
+            } else { //Si no lo está, hay posibilidades
+
+                for (int i = 1; i < 5; i++) { //Mira las otras 4 cartas
+
+                    if (!this.carton[0][i].isCantada()) {//Si alguna de las que no son la primera no están cantadas, false
+
+                        return false;
+
+                    } else {
+
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return true; //Si no se rompe la condición, devuelve true
+
+    }
+
+    //FULL
+    //POKINO
     //Desordena la fila
     public void desordenarFila(int fila) {
 
