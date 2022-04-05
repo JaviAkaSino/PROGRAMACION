@@ -13,7 +13,7 @@ public class ListaVuelos {
 
     public static void main(String[] args) {
 
-        final int NUMERO_VUELOS = 20; //Elegimos el número de vuelos random
+        final int NUMERO_VUELOS = 10; //Elegimos el número de vuelos random
         ArrayList<Vuelo> lista = new ArrayList<>();
 
         for (int i = 0; i < NUMERO_VUELOS; i++) { //Se crean y añaden a la lista
@@ -36,10 +36,11 @@ public class ListaVuelos {
         System.out.println("\n\nPasajeros por destino en orden alfabético:");
         System.out.println(pasajerosPorDestinoOrden(lista));
 
-        System.out.println("\n\nPasajeros del vuelo 123456: ");
-        System.out.println(pasajerosVuelo(lista, "123456"));
+        System.out.println("\n\nPasajeros de cada vuelo:");
+        System.out.println(pasajerosPorCodigo(lista));
         
-        Persona p = new Persona(); 
+        System.out.println("\n\nPasajeros del vuelo 123456: ");
+        System.out.println(pasajerosPorVuelo(lista, "123456"));
 
     }
 
@@ -94,7 +95,20 @@ public class ListaVuelos {
 
     /*Método que me permita saber por codigo de vuelo los pasajeros (lista) que hay 
         en ese vuelo*/
-    public static ArrayList<Persona> pasajerosVuelo(ArrayList<Vuelo> lista, String codigoVuelo) {
+    public static Map<String, ArrayList<Persona>> pasajerosPorCodigo(ArrayList<Vuelo> lista){
+        
+        Map<String, ArrayList<Persona>> codigoPasajeros = new HashMap<>();
+
+        for (Vuelo v : lista) { //Recorre todos los vuelos
+
+            codigoPasajeros.put("\n\nCÓDIGO DE VUELO: " + v.getCodigo() +"\n", v.getPasajeros());
+            }
+
+            return codigoPasajeros;
+        }
+
+    
+    public static ArrayList<Persona> pasajerosPorVuelo(ArrayList<Vuelo> lista, String codigoVuelo) {
 
         ArrayList<Persona> pasajeros = new ArrayList<>();
 

@@ -36,8 +36,11 @@ public class ListaVuelos {
         System.out.println("\n\nPasajeros por destino en orden alfabético:");
         System.out.println(pasajerosPorDestinoOrden(lista));
 
+        System.out.println("\n\nPasajeros de cada vuelo:");
+        System.out.println(pasajerosPorCodigo(lista));
+        
         System.out.println("\n\nPasajeros del vuelo 123456: ");
-        System.out.println(pasajerosVuelo(lista, "123456"));
+        System.out.println(pasajerosPorVuelo(lista, "123456"));
 
     }
 
@@ -94,11 +97,18 @@ public class ListaVuelos {
         en ese vuelo*/
     public static Map<String, ArrayList<Persona>> pasajerosPorCodigo(ArrayList<Vuelo> lista){
         
-        
-        
-    }
+        Map<String, ArrayList<Persona>> codigoPasajeros = new HashMap<>();
+
+        for (Vuelo v : lista) { //Recorre todos los vuelos
+
+            codigoPasajeros.put("\n\nCÓDIGO DE VUELO: " + v.getCodigo() +"\n", v.getPasajeros());
+            }
+
+            return codigoPasajeros;
+        }
+
     
-    public static ArrayList<Persona> pasajerosVuelo(ArrayList<Vuelo> lista, String codigoVuelo) {
+    public static ArrayList<Persona> pasajerosPorVuelo(ArrayList<Vuelo> lista, String codigoVuelo) {
 
         ArrayList<Persona> pasajeros = new ArrayList<>();
 
