@@ -127,6 +127,24 @@ public final class Carton {
         return false; //Si no, devuelve false para no comprobar nuevos premios
     }
 
+    public String posicionMarcada(Carta carta) { //Recorre el cartón entero
+
+        for (int i = 0; i < this.carton.length; i++) {
+            for (int j = 0; j < this.carton[i].length; j++) {
+
+                if (this.carton[i][j].equals(carta)) { //Si la carta está
+
+                    this.carton[i][j].setCantada(true); //La marca como cantada
+
+                    return i + "-" + j;
+                }
+
+            }
+        }
+
+        return "";
+    }
+
     public boolean comprobarCentro() { //Si ha tocado el centro, devuelve true
 
         if (this.carton[2][2].isCantada()) {
@@ -187,78 +205,135 @@ public final class Carton {
     //POKER
     public boolean comprobarPoker() {
 
-        if (this.carton[0][0].getValor().equals(this.carton[0][1].getValor())) { //Si la primera es igual que la segunda, son el Poker
+        for (int i = 0; i < 5; i++) { //Recorre todas las cartas de la primera fila
 
-            for (int i = 0; i < 5; i++) { //Mira todas las cartas de la primera fila
+            //Si el valor de la carta mirada es el del Poker
+            if (this.carton[0][i].getValor().equals(cartaPoker().getValor())
+                    && !this.carton[0][i].isCantada()) { //Y no está cantada
 
-                if (this.carton[0][0].getValor().equals(this.carton[0][i].getValor())) {//Recorre las cartas de igual valor
-
-                    if (!this.carton[0][i].isCantada()) { //Si alguna no esta cantada
-
-                        return false;
-
-                    }
-
-                } else if (this.carton[0][i].isCantada()) { //Cuando la carta no sea de igual valor, sea la que no es del Poker
-                    //Y esté cantada, false, no hay Póker que valga
-                    return false;
-
-                }
+                return false; //No es Póker
             }
 
-        } else if (this.carton[0][0].getValor().equals(this.carton[0][2].getValor())) { //Si no lo son
-            //Y la primera es de igual valor que la tercera, son el Poker y la segunda no
+            //Si el valor de la carta es la que no es del Póker
+            if (!this.carton[0][i].getValor().equals(cartaPoker().getValor())
+                    && this.carton[0][i].isCantada()) { //Y está cantada
 
-            if (this.carton[0][1].isCantada()) { //Si la distinta está cantada
-
-                return false;
-
-            } else { //Si no lo está, hay posibilidades
-
-                for (int i = 0; i < 5; i++) { //Mira todas las cartas de la primera fila
-
-                    if (i != 1 && !this.carton[0][i].isCantada()) {//Si alguna de las que no son la segunda no están cantadas, false
-
-                        return false;
-
-                    } else {
-
-                        return true;
-                    }
-
-                }
-            }
-
-        } else {
-
-            //Sólo queda que la primera sea la que no es del Póker
-            //Si, sin ser la primera, alguna no está cantada, false
-            if (this.carton[0][0].isCantada()) { //Si la distinta está cantada
-
-                return false;
-
-            } else { //Si no lo está, hay posibilidades
-
-                for (int i = 1; i < 5; i++) { //Mira las otras 4 cartas
-
-                    if (!this.carton[0][i].isCantada()) {//Si alguna de las que no son la primera no están cantadas, false
-
-                        return false;
-
-                    } else {
-
-                        return true;
-                    }
-                }
+                return false; //Tampoco hay póker
             }
         }
 
-        return true; //Si no se rompe la condición, devuelve true
+        return true; //Si no hay ningún false, es Poker
+    }
 
+    public Carta cartaPoker() {
+
+        int iguales = 0;
+
+        for (int i = 0; i < 5; i++) { //Recorre las 5 cartas
+
+            if (this.carton[0][0].getValor().equals(this.carton[0][i].getValor())) {
+
+                iguales++; //Si hay valores iguales que la 1ª, se suma 1
+
+                if (iguales > 1) //Si hay mas de uno, el valor es el de la 1ª
+                {
+                    return this.carton[0][0];
+                }
+            }
+
+        }
+
+        return this.carton[0][1]; //Si no, es cualquier otra
     }
 
     //FULL
+    public boolean comprobarFull() {
+
+        for (int i = 0; i < 5; i++) {
+
+            if (!this.carton[1][i].isCantada()) { //Si alguna del full no está marcada
+
+                return false; //No hay full
+            }
+
+        } //Si todas los están, true
+        return true;
+    }
+
     //POKINO
+    public boolean comprobarPokino(int k, int l) {
+
+        boolean pokino = (comprobarFila(k) || comprobarColumna(l)
+                || comprobarDiagonalCeroCero() || comprobarDiagonalCuatroCero());
+
+        return pokino;
+    }
+
+    public boolean comprobarFila(int k) {
+
+        //Comprobar fila
+        for (int j = 0; j < 5; j++) {
+
+            if (!this.carton[k][j].isCantada()) { //Si alguna no está cantada, variable a false
+
+                return false;
+            }
+
+        }
+        return true; //Si estám todas cantadas, es pokino
+    }
+
+    public boolean comprobarColumna(int l) {
+        //Recorre la columna
+        for (int i = 0; i < 5; i++) {
+
+            if (!this.carton[i][l].isCantada()) { //Si alguna no está cantada, variable a false
+
+                return false;
+
+            }
+        }
+        return true; //Si están todas cantadas, es pokino
+    }
+
+    public boolean comprobarDiagonalCeroCero() {
+        //Recorre las diagonales si la central está marcada
+        if (this.carton[2][2].isCantada()) {
+
+            for (int i = 0; i < 5; i++) { //Diagonal de [0][0] a [4][4]
+
+                if (!this.carton[i][i].isCantada()) { //Si alguna no está cantada, variable a false
+
+                    return false;
+                }
+
+            }
+            return true; //Si están todas cantadas, es pokino
+        }
+
+        return false; //Si no está marcada la central, no hay diagonal
+    }
+
+    public boolean comprobarDiagonalCuatroCero() {
+        //Recorre las diagonales si la central está marcada
+        if (this.carton[2][2].isCantada()) {
+
+            int j = 0;
+
+            for (int i = 4; i >= 0; i--) { //Diagonal de [4][0] a [0][4]
+
+                if (!this.carton[i][j++].isCantada()) { //Si alguna no está cantada, variable a false
+
+                    return false;
+                }
+
+            }
+            return true; //Si están todas cantadas, es pokino
+        }
+
+        return false; //Si no está marcada la central, no hay diagonal
+    }
+
     //Desordena la fila
     public void desordenarFila(int fila) {
 
