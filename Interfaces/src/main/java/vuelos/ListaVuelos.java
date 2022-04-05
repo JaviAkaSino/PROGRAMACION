@@ -92,6 +92,12 @@ public class ListaVuelos {
 
     /*Método que me permita saber por codigo de vuelo los pasajeros (lista) que hay 
         en ese vuelo*/
+    public static Map<String, ArrayList<Persona>> pasajerosPorCodigo(ArrayList<Vuelo> lista){
+        
+        
+        
+    }
+    
     public static ArrayList<Persona> pasajerosVuelo(ArrayList<Vuelo> lista, String codigoVuelo) {
 
         ArrayList<Persona> pasajeros = new ArrayList<>();

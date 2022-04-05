@@ -9,23 +9,27 @@ import java.util.Collections;
  */
 public class MiTienda {
 
+    private ArrayList<Producto> listaProductos;
+    private ArrayList<Libro> listaLibros;
+    
     public static void main(String[] args) {
 
         /*Crea una lista de productos y añade dos objetos de cada tipo de producto distinto (de los posibles) a la misma.*/
-        ArrayList<Producto> lista = new ArrayList<>();
+        ArrayList<Producto> listaProductos = new ArrayList<>();
+        ArrayList<Libro> listaLibros = new ArrayList<>();
 
-        lista.add(new Pantalon()); //Conversión implícita
-        lista.add(new Pantalon()); //Conversión implícita
+        listaProductos.add(new Pantalon()); //Conversión implícita
+        listaProductos.add(new Pantalon()); //Conversión implícita
 
-        lista.add(new Musica()); //Conversión implícita
-        lista.add(new Musica("Barón Rojo", "123456", 20, 21, "Los rockeros van al infierno")); //Conversión implícita
+        listaProductos.add(new Musica()); //Conversión implícita
+        listaProductos.add(new Musica("Barón Rojo", "123456", 20, 21, "Los rockeros van al infierno")); //Conversión implícita
 
         Libro l1 = new LibroPapel(547, "987654");
-        lista.add(l1); //Conversión implícita
-        lista.add(new LibroPapel()); //Conversión implícita
+        listaProductos.add(l1); //Conversión implícita
+        listaProductos.add(new LibroPapel()); //Conversión implícita
 
-        lista.add(new LibroDigital()); //Conversión implícita
-        lista.add(new LibroDigital()); //Conversión implícita
+        listaProductos.add(new LibroDigital()); //Conversión implícita
+        listaProductos.add(new LibroDigital()); //Conversión implícita
 
         /*Muestra los datos de los productos usando un foreach y el método 
         toString(). Contesta usando un comentario en el código: ¿es toString() 
@@ -36,30 +40,30 @@ public class MiTienda {
         del objeto concreto desde el cual le llamemos. Véase a continuación:*/
         System.out.println("Lista de productos");
 
-        for (Producto p : lista) {
+        for (Producto p : listaProductos) {
 
             System.out.println(p);
         }
 
         /*Ordena la lista de productos según el precio, haciendo uso de 
         <<Comparator>> y una expresión lambda.*/
-        Collections.sort(lista, (p1, p2) -> Double.compare(p1.getPrecio(), p2.getPrecio()));
+        Collections.sort(listaProductos, (p1, p2) -> Double.compare(p1.getPrecio(), p2.getPrecio()));
 
         /*Muestra la lista de productos ordenados por precio.*/
         System.out.println("\n\nLista de productos ordenada por precio");
 
-        for (Producto p : lista) {
+        for (Producto p : listaProductos) {
 
             System.out.println(p);
         }
 
         /*Ordena la lista de productos según el código, haciendo uso de 
         <<Comparator>> y una expresión lambda.*/
-        Collections.sort(lista, (p1, p2) -> (p1.getCodigo().compareTo(p2.getCodigo())));
+        Collections.sort(listaProductos, (p1, p2) -> (p1.getCodigo().compareTo(p2.getCodigo())));
 
         /*Muestra la lista de productos ordenados por código.*/
         System.out.println("\n\nLista de productos ordenada por código");
-        for (Producto p : lista) {
+        for (Producto p : listaProductos) {
 
             System.out.println(p);
         }
@@ -68,10 +72,10 @@ public class MiTienda {
         exista dentro de la lista y otro que no exista, mostrando la posición 
         que ocupa en la lista.*/
         //Código 123456 (existe)
-        if (buscarCodigo(lista, "123456") >= 0) { //Si la posición NO es negativa (existe el objeto)
+        if (buscarCodigo(listaProductos, "123456") >= 0) { //Si la posición NO es negativa (existe el objeto)
 
             System.out.println("\n\nEl Producto con código 123456 está en la lista en la posición: "
-                    + buscarCodigo(lista, "123456"));
+                    + buscarCodigo(listaProductos, "123456"));
 
         } else {
 
@@ -79,10 +83,10 @@ public class MiTienda {
         }
 
         //Código 000 (no existe)
-        if (buscarCodigo(lista, "000") >= 0) { //Si la posición NO es negativa (existe el objeto)
+        if (buscarCodigo(listaProductos, "000") >= 0) { //Si la posición NO es negativa (existe el objeto)
 
             System.out.println("\n\nEl Producto con código 000 está en la lista en la posición: "
-                    + buscarCodigo(lista, "000"));
+                    + buscarCodigo(listaProductos, "000"));
 
         } else {
 
@@ -91,9 +95,9 @@ public class MiTienda {
 
         /*Recorre la lista de productos y guarda todos los libros en una lista 
         de libros.*/
-        ArrayList<Libro> listaLibros = new ArrayList<>();
+        
 
-        for (Producto p : lista) {
+        for (Producto p : listaProductos) {
 
             if (p instanceof Libro) {
 
@@ -151,7 +155,7 @@ public class MiTienda {
         los objetos del tipo <<SeEnvía>>.*/
         ArrayList<SeEnvia> listaEnvios = new ArrayList<>();
 
-        for (Producto p : lista) {
+        for (Producto p : listaProductos) {
 
             if (p instanceof SeEnvia) {
 

@@ -11,7 +11,7 @@ public class Juego {
     public static void main(String[] args) {
 
         //Se establece el número de jugadores
-        int jugadores = 6;
+        int jugadores = 2;
 
         //Se crean los jugadores con su cartón y los vasos vacíos
         Pokino pokino = new Pokino(jugadores);
@@ -36,10 +36,7 @@ public class Juego {
         do { //Sigue sacando cartas hasta que alguien cante Pokino
 
             //Sale carta y se enseña
-            if (baraja.numeroCartas() == 0) { //Si se acaban las cartas
-                baraja = new Baraja(); //Baraja nueva
-                baraja.barajar();
-            }
+      
 
             Carta carta = baraja.primeraCarta();
             System.out.println(carta);
