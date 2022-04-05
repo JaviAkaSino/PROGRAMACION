@@ -108,6 +108,19 @@ public final class Carton {
             }
         }
     }
+    
+    
+    public void desmarcarCarton(){
+        
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                
+                this.carton[i][j].setCantada(false);
+                
+            }
+        }
+    }
+    
 
     public boolean marcarCarta(Carta carta) { //Recorre el cartón entero
 
@@ -270,6 +283,10 @@ public final class Carton {
     }
 
     public boolean comprobarFila(int k) {
+
+        if (k == 1) { //Si la fila es la del full, no es pokino
+            return false;
+        }
 
         //Comprobar fila
         for (int j = 0; j < 5; j++) {

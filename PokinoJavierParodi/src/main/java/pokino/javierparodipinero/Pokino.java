@@ -71,6 +71,7 @@ public class Pokino {
 
         imprimirCartones();
         imprimirPremios();
+        System.out.println("\n\n");
     }
 
     public void imprimirCartones() {
