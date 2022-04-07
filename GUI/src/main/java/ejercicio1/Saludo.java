@@ -1,4 +1,4 @@
-package introduccion;
+package ejercicio1;
 
 import java.awt.Color;
 import java.awt.Dimension;
