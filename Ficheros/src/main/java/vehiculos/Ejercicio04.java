@@ -38,12 +38,6 @@ siguiente:
         }
 
         
-        Turismo t1 = new Turismo(5, true, 345674l, "4060 TUR", "Skoda", "Fabia","Blanco",90.0);
-        
-        Deportivo d1 = new Deportivo(3000, 78654l, "4070 DEP","Ford", "Mustang", "Rojo",150.0);
-        
-        Furgoneta f1 = new Furgoneta(5000, 10, 16199l, "4080 FUR", "Fiat", "Ducato", "Azul", 80.0);
-        
     /*Guarda los vehículos en un fichero de texto llamado “vehículos.txt”, haciendo 
         uso del método polimórfico toString(), teniendo en cuenta que el string 
         devuelto lleve separados los campos del objeto por el carácter dos 

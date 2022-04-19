@@ -16,6 +16,9 @@ public class Furgoneta extends Vehiculo {
     }
 
     public Furgoneta() {
+        this.cargaKg = (int) (Math.random()*3000);
+        this.volumenM3 = (int) (Math.random()*30);
+        
     }
 
     

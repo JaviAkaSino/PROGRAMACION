@@ -14,6 +14,7 @@ public class Deportivo extends Vehiculo {
     }
 
     public Deportivo() {
+        this.cilindrada = (int) (Math.random()*3000);
     }
     
     

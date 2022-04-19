@@ -2,13 +2,14 @@ package vehiculos;
 
 public class Vehiculo {
 
-    //Atributos. Poner en private para encapsulamiento.
     private Long bastidor;
     private String matricula;
     private String marca;
     private String modelo;
     private String color;
     private double tarifa;
+    
+    private static Long contador = 1l;
 
     public Vehiculo(Long bastidor, String matricula, String marca, String modelo, String color, double tarifa) {
         this.bastidor = bastidor;
@@ -20,6 +21,15 @@ public class Vehiculo {
     }
 
     public Vehiculo() {
+        
+        this.bastidor = 1111111l + contador;
+        this.matricula = "FMD100" + contador.toString();
+        this.marca = marcaDefecto();
+        this.modelo = modeloDefecto();
+        this.color = colorDefecto();
+        this.tarifa = Math.round(Math.random()*100);
+        
+        contador++;
     }
 
     
@@ -72,6 +82,33 @@ public class Vehiculo {
         this.tarifa = tarifa;
     }
 
+    public String marcaDefecto(){
+
+        String[] lista = {"SEAT", "BMW", "OPEL", "MERCEDES","RENAULT", "RENAULT"};
+
+        String mar = lista[Math.abs(contador.intValue())/6];
+
+        return mar;
+    }
+    
+    public String modeloDefecto(){
+
+        String[] lista = {"Altea", "318", "Mokka", "Vito","Megane","Berlingo"};
+
+        String mod = lista[Math.abs(contador.intValue())/6];
+
+        return mod;
+    }
+    
+    public String colorDefecto(){
+
+        String[] lista = {"Rojo", "Azul", "Blanco", "Verde","Naranja", "Amarillo"};
+
+        String col = lista[Math.abs(contador.intValue())/6];
+
+        return col;
+    }
+    
     
     public String toString() {
         return bastidor + ":" + matricula + ":" + marca+ ":" + modelo + ":" + color + ":" + tarifa;

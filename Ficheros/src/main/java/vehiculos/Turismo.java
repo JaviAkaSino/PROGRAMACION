@@ -1,5 +1,7 @@
 package vehiculos;
 
+import java.util.Random;
+
 /**
  *
  * @author javiakasino
@@ -16,6 +18,9 @@ public class Turismo extends Vehiculo {
     }
 
     public Turismo() {
+        Random rnd = new Random();
+        this.numeroPuertas = 5;
+        this.marchaAutomatica = rnd.nextBoolean();
     }
     
     
