@@ -41,9 +41,6 @@ public class Ejercicio01 {
                 flujo.write("\n"); //Salto de línea
                 variable = NUMERO_PARTIDA; //Se resetea a 100
             }
-            {
-
-            }
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
