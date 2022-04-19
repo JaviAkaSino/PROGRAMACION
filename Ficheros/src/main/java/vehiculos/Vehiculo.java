@@ -19,6 +19,11 @@ public class Vehiculo {
         this.tarifa = tarifa;
     }
 
+    public Vehiculo() {
+    }
+
+    
+    
     public Long getBastidor() {
         return bastidor;
     }
@@ -68,8 +73,8 @@ public class Vehiculo {
     }
 
     
-    public String getAtributos() {
-        return "Vehiculo:\n Bastidor: " + bastidor + ", matricula: " + matricula + ", marca: " + marca + ", modelo: " + modelo + ", color: " + color + ", tarifa: " + tarifa;
+    public String toString() {
+        return bastidor + ":" + matricula + ":" + marca+ ":" + modelo + ":" + color + ":" + tarifa;
     }
 
 }

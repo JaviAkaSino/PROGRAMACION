@@ -13,6 +13,12 @@ public class Deportivo extends Vehiculo {
         this.cilindrada = cilindrada;
     }
 
+    public Deportivo() {
+    }
+    
+    
+    
+
     public int getCilindrada() {
         return cilindrada;
     }
@@ -24,8 +30,8 @@ public class Deportivo extends Vehiculo {
     
     
     @Override
-    public String getAtributos() {
-        return super.getAtributos() + "cilindrada=" + cilindrada + '}';
+    public String toString() {
+        return super.toString() + ":" + cilindrada;
     }
 
 }

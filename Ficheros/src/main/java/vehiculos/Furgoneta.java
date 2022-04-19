@@ -15,6 +15,11 @@ public class Furgoneta extends Vehiculo {
         this.volumenM3 = volumenM3;
     }
 
+    public Furgoneta() {
+    }
+
+    
+    
     public double getCargaKg() {
         return cargaKg;
     }
@@ -34,8 +39,8 @@ public class Furgoneta extends Vehiculo {
     
 
     @Override
-    public String getAtributos() {
-        return super.getAtributos() + "cargaKg=" + cargaKg + ", volumenM3=" + volumenM3 + '}';
+    public String toString() {
+        return super.toString() + ":" + cargaKg + ":" + volumenM3;
     }
 
 }
