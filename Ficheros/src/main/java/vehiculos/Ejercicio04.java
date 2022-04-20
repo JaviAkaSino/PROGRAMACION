@@ -25,17 +25,10 @@ siguiente:
         for (int i = 0; i < 10; i++) {
             
             lista.add(new Turismo());
-        }
-
-        for (int i = 0; i < 10; i++) {
-            
             lista.add(new Deportivo());
-        }
-        
-        for (int i = 0; i < 10; i++) {
-            
             lista.add(new Furgoneta());
         }
+
 
         
     /*Guarda los vehículos en un fichero de texto llamado “vehículos.txt”, haciendo 
@@ -59,7 +52,7 @@ siguiente:
                     
                     flujo.write("1");
                     
-                } else if (v instanceof Furgoneta){
+                } else {
                     
                     flujo.write("2");
                     

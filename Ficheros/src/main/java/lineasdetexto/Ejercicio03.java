@@ -1,4 +1,4 @@
-package introduccion;
+package lineasdetexto;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
