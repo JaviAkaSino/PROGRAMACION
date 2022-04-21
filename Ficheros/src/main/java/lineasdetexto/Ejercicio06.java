@@ -16,58 +16,48 @@ public class Ejercicio06 {
         muestre el contenido del fichero. Además buscará la primera ocurrencia,
         en cada línea, de las letras seguidas ‘w’, ‘e’, ‘b’, informando de la 
         posición que ocupan en la línea, si es que existe esa ocurrencia.*/
-        
         // Fichero a leer
         String idFichero = "letrasRandom.txt";
 
         // Variables para guardar los datos que se van leyendo
         String[] tokens;
-        String linea = "";
+        String linea;
         int numeroLinea = 1;
-        int lineaOcurrencia = 0;
-        boolean condicion = linea.contains("w;e;b;");
 
         System.out.println("Leyendo el fichero: " + idFichero);
 
         // Inicialización del flujo "datosFichero" en función del archivo llamado "idFichero"
         // Estructura try-with-resources. Permite cerrar los recursos una vez finalizadas
         // las operaciones con el archivo
-        try (Scanner datosFichero = new Scanner(new FileReader(idFichero))) {
+        try ( Scanner datosFichero = new Scanner(new FileReader(idFichero))) {
 
             // Mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
 
                 linea = datosFichero.nextLine(); //Se lee la línea
                 System.out.println(numeroLinea + " - " + linea); // Se imprime en pantalla
-                
-                
+
                 tokens = linea.split(";"); //Teniendo en cuenta el separador
 
-                if (linea.contains("w;e;b;")){ 
-                    
-                    System.out.println("La secuencia 'w', 'e', 'b' aparece"
-                            + "en la línea " + numeroLinea);
-                    
-                    
-                    int letrab = linea.indexOf("b", linea.indexOf("w"));
-                    
-                    System.out.println(letrab);
-                    
-                    int indice = linea.indexOf("w;e;b;");
-                    
-                    System.out.println(indice);
-                    
-                    
+                for (int i = 0; i < tokens.length; i++) {
+
+                    if (tokens[i].equals("w") && tokens[i + 1].equals("e") && tokens[i + 2].equals("b")) {
+
+                        System.out.println("Están en la línea "+ numeroLinea + " en la posición: " + i + ", " + (i + 1) + ", " + (i + 2) + ", ");
+
+                    }
+
                 }
                 
                 numeroLinea++;
             }
+            
+           
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
 
-
     }
-    
+
 }
