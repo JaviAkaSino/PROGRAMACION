@@ -28,48 +28,52 @@ public class Tarea7A_JavierParodi {
         String[] tokens;
         String linea;
         ArrayList<Empleado> lista = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         System.out.println("Leyendo el fichero: " + idFichero);
 
         // Inicialización del flujo "datosFichero" en función del archivo llamado "idFichero"
         // Estructura try-with-resources. Permite cerrar los recursos una vez finalizadas
         // las operaciones con el archivo
-        try ( BufferedReader datosFichero = new BufferedReader(new InputStreamReader(new FileInputStream(idFichero)))) {
+        try ( BufferedReader datosFichero = new BufferedReader(new InputStreamReader(new FileInputStream(idFichero), "UTF-8"))) {
 
-            datosFichero.(); //Salta la primera linea
+            
             // Mientras haya líneas por leer
-            while (datosFichero.hasNextLine()) {
+            while ((linea = datosFichero.readLine())!=null) { //Se lee la línea si la hay
 
-                linea = datosFichero.nextLine(); //Se lee la línea
-                System.out.println(linea); // Se imprime en pantalla
+                 
+                //System.out.println(linea); // Se imprime en pantalla
 
                 tokens = linea.split(",");
 
-                System.out.println(Arrays.toString(tokens));
+                //System.out.println(Arrays.toString(tokens));
 
                 Empleado e = new Empleado();
 
-                e.setNombre(tokens[0]);
-                e.setId(tokens[1]);
-                e.setPuesto(tokens[2]);
-                e.setFechaToma(LocalDate.parse(tokens[3], DateTimeFormatter.ISO_LOCAL_DATE));
-                e.setFechaCese(LocalDate.parse(tokens[4], DateTimeFormatter.ISO_LOCAL_DATE));
-                e.setTelefono(tokens[5]);
+                e.setNombre(tokens[0] + tokens[1]);
+                e.setId(tokens[2]);
+                e.setPuesto(tokens[3]);
+                e.setFechaToma(LocalDate.parse(tokens[4], formatter));
+                e.setFechaCese(LocalDate.parse(tokens[5], formatter));
+                
+                e.setTelefono(tokens[6]);
 
-                e.setEvaluador(tokens[6]);
-                e.setCoordinador(tokens[7]);
+                e.setEvaluador(siNoBoolean(tokens[7]));
+                e.setCoordinador(siNoBoolean(tokens[0]));
 
-                lista.add();
+                lista.add(e);
 
             }
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
-        }
+        }         
+        
+        System.out.println(lista);
 
     }
 
-    public boolean siNoBoolean(String respuesta) {
+    public static boolean siNoBoolean(String respuesta) {
 
         if (respuesta.equalsIgnoreCase("SI") || respuesta.equalsIgnoreCase("SÍ")) {
 
