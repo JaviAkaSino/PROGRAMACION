@@ -1,4 +1,3 @@
-
 package tarea7a_javierparodi;
 
 import java.time.LocalDate;
@@ -8,7 +7,7 @@ import java.time.LocalDate;
  * @author javiakasino
  */
 public class Empleado {
-    
+
     private String nombre;
     private String id;
     private String puesto;
@@ -87,11 +86,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "nombre=" + nombre + ", id=" + id + ", puesto=" + puesto + ", fechaToma=" + fechaToma + ", fechaCese=" + fechaCese + ", telefono=" + telefono + ", evaluador=" + evaluador + ", coordinador=" + coordinador + '}';
+        return nombre + "\t" + id + "\t" + puesto + "\t" + fechaToma + "\t" + fechaCese + "\t" + telefono + "\t" + evaluador + "\t" + coordinador;
     }
-    
-    
-    
-    
-    
+
 }
