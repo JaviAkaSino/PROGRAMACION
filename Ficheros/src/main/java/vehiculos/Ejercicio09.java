@@ -99,9 +99,9 @@ public class Ejercicio09 {
         realiza usando ;, y comprueba que cada campo se encuentra en una columna 
         diferente.*/
         
-        String idFicheroT = "turismos.txt";
-        String idFicheroD = "deportivos.txt";
-        String idFicheroF = "furgonetas.txt";
+        String idFicheroT = "turismos.csv";
+        String idFicheroD = "deportivos.csv";
+        String idFicheroF = "furgonetas.csv";
         
         try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(idFicheroT))) {
 
