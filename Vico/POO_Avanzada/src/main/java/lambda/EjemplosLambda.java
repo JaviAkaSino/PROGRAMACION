@@ -51,8 +51,8 @@ public class EjemplosLambda {
         listaInt.accept(list);
         System.out.println(list);
         
-        Consumer <String> imprimir = nombre -> System.out.println("Mi nombre es" + nombre);
-        imprimir.accept("Juan CArlos");
+        Consumer <String> imprimir = nombre -> System.out.println("Mi nombre es " + nombre);
+        imprimir.accept("Juan Carlos");
         
         Persona sinNombre = new Persona("", "Pérez", "22222F");
          System.out.println(sinNombre);
