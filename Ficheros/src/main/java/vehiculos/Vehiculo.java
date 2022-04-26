@@ -111,7 +111,7 @@ public class Vehiculo {
     
     
     public String toString() {
-        return bastidor + ":" + matricula + ":" + marca+ ":" + modelo + ":" + color + ":" + tarifa;
+        return bastidor + ";" + matricula + ";" + marca+ ";" + modelo + ";" + color + ";" + tarifa;
     }
 
 }

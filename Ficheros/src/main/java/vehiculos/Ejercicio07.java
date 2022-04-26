@@ -38,7 +38,7 @@ public class Ejercicio07 {
 
                 linea = datosFichero.nextLine(); //Se lee la línea
                 
-                tokens = linea.substring(4).split(":"); //Teniendo en cuenta el separador quitando los 4 primeros caracteres
+                tokens = linea.substring(4).split(";"); //Teniendo en cuenta el separador quitando los 4 primeros caracteres
                 
                
                 

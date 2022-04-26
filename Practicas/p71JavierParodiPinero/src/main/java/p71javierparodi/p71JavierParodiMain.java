@@ -55,7 +55,7 @@ public class p71JavierParodiMain {
                 e.setFechaCese(stringFecha(tokens[5]));
                 e.setTelefono(tokens[6].trim());
                 e.setEvaluador(siNoBoolean(tokens[7].trim()));
-                e.setCoordinador(siNoBoolean(tokens[0].trim()));
+                e.setCoordinador(siNoBoolean(tokens[8].trim()));
 
                 lista.add(e); //Se añade a la lista
             }
@@ -183,18 +183,15 @@ public class p71JavierParodiMain {
 
             System.out.println(apellido);
         }
-        
-        
+
         //Lista de nifs orden alfabético inverso de empleados con fecha toma dada
-        
         System.out.println("\n\nNIFs EMPLEADOS CON FECHA DE TOMA 16/09/2020\n");
-        
-        for (String nif : Utils.nifsFechaToma(lista, LocalDate.of(2020, 9, 16))){
-            
+
+        for (String nif : Utils.nifsFechaToma(lista, LocalDate.of(2020, 9, 16))) {
+
             System.out.println(nif);
         }
-        
-        
+
     }
 
     //------------------------------- MÉTODOS -------------------------------
@@ -240,6 +237,7 @@ public class p71JavierParodiMain {
         }
 
         return profesDepto;
+
     }
 
     /*Dada una lista de empleados y una cantidad de días trabajados, devuelve 
