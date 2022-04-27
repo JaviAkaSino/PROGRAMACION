@@ -1,12 +1,13 @@
 package vehiculos;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author javiakasino
  */
-public class Turismo extends Vehiculo {
+public class Turismo extends Vehiculo implements Serializable {
 
     private int numeroPuertas;
     private boolean marchaAutomatica;

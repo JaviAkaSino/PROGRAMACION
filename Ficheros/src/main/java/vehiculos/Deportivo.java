@@ -1,10 +1,12 @@
 package vehiculos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author javiakasino
  */
-public class Deportivo extends Vehiculo {
+public class Deportivo extends Vehiculo implements Serializable {
 
     private int cilindrada;
 

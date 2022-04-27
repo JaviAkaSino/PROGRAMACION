@@ -51,6 +51,8 @@ public class NumeroAleatorio extends JPanel implements ActionListener {
             @Override
             public void mouseClicked(MouseEvent me) {
 
+                
+                
             }
 
             @Override

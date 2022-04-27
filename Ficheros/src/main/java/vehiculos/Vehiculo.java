@@ -1,6 +1,8 @@
 package vehiculos;
 
-public class Vehiculo {
+import java.io.Serializable;
+
+public class Vehiculo implements Serializable {
 
     private Long bastidor;
     private String matricula;

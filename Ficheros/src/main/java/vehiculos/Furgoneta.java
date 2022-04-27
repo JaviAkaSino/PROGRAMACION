@@ -1,10 +1,12 @@
 package vehiculos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author javiakasino
  */
-public class Furgoneta extends Vehiculo {
+public class Furgoneta extends Vehiculo  implements Serializable{
 
     private double cargaKg;
     private double volumenM3;
