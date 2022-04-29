@@ -3,6 +3,8 @@ package p71javierparodi;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
+import static java.util.Collections.reverse;
+import java.util.Comparator;
 import java.util.Set;
 
 /**
@@ -82,7 +84,9 @@ public class Utils {
         }
 
         //El orden natural de los String es el alfabético
-        Collections.reverse(listaNifs); //Ordena en orden alfabético inverso
+        Collections.sort(listaNifs);
+        Collections.reverse(listaNifs);
+        //Collections.sort(lista, Comparator.reverseOrder());reverse(listaNifs); //Ordena en orden alfabético inverso
 
         return listaNifs; //Devuelve la lista
     }

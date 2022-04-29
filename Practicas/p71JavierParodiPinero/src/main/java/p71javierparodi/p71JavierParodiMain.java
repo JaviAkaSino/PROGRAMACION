@@ -191,6 +191,55 @@ public class p71JavierParodiMain {
 
             System.out.println(nif);
         }
+        
+        
+        //------------------------------ STREAM ------------------------------
+        //Comprobar dado un nombre si está en la lista
+        //Probamos uno que sí está
+        System.out.println("\n\nCOMPROBAR SI EXISTE EL NOMBRE: Álvarez Chamizo, Cristina\n");
+
+        if (UtilsStream.existeNombre(lista, "Álvarez Chamizo, Cristina")) {
+
+            System.out.println("El nombre ESTÁ en la lista");
+
+        } else {
+
+            System.out.println("El nombre NO está en la lista");
+        }
+
+        //Probamos uno que no está
+        System.out.println("\n\nCOMPROBAR SI EXISTE EL NOMBRE: Noestase Guro, Pepito\n");
+
+        if (UtilsStream.existeNombre(lista, "Noestase Guro, Pepito")) {
+
+            System.out.println("El nombre ESTÁ en la lista");
+
+        } else {
+
+            System.out.println("El nombre NO está en la lista");
+        }
+
+        //Número de coordinadores dado un departamento
+        System.out.println("\n\nNÚMERO COORDINADORES DEPTO: Matemáticas P.E.S.\n");
+
+        System.out.println(UtilsStream.coordinadoresDepto(lista, "Matemáticas P.E.S."));
+
+        //Lista de apellidos, nombre de empleados con la letra L en el DNI
+        System.out.println("\n\nAPELLIDOS EMPLEADOS CON LETRA DE DNI 'L'\n");
+
+        for (String apellido : UtilsStream.apellidosLetraNif(lista, 'L')) {
+
+            System.out.println(apellido);
+        }
+
+        //Lista de nifs orden alfabético inverso de empleados con fecha toma dada
+        System.out.println("\n\nNIFs EMPLEADOS CON FECHA DE TOMA 16/09/2020\n");
+
+        for (String nif : UtilsStream.nifsFechaToma(lista, LocalDate.of(2020, 9, 16))) {
+
+            System.out.println(nif);
+        }
+        
 
     }
 

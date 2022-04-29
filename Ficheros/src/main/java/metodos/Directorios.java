@@ -50,6 +50,7 @@ public class Directorios {
         }
     }
 
+    //Solo saca el nombre, no los lista, hacer el que lista
     public static void mostrarFicheros(String directorio) {
 
         System.out.println("Ficheros contenidos en \"" + directorio + "\"");
