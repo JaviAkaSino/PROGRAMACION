@@ -1,0 +1,301 @@
+[ {
+  "codigo" : 1,
+  "nombre" : "app1s",
+  "descripcion" : "Descripción de ejemplo 2",
+  "tamanioKb" : 597.9280963699355,
+  "descargas" : 47229
+}, {
+  "codigo" : 2,
+  "nombre" : "app2t",
+  "descripcion" : "Descripción de ejemplo 10",
+  "tamanioKb" : 311.5011598876795,
+  "descargas" : 11452
+}, {
+  "codigo" : 3,
+  "nombre" : "app3i",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 680.7602152392791,
+  "descargas" : 11227
+}, {
+  "codigo" : 4,
+  "nombre" : "app4l",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 172.78460240318043,
+  "descargas" : 46221
+}, {
+  "codigo" : 5,
+  "nombre" : "app5w",
+  "descripcion" : "Descripción de ejemplo 5",
+  "tamanioKb" : 891.5537581681853,
+  "descargas" : 9516
+}, {
+  "codigo" : 6,
+  "nombre" : "app6i",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 455.44015583570945,
+  "descargas" : 6490
+}, {
+  "codigo" : 7,
+  "nombre" : "app7b",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 437.9745085143005,
+  "descargas" : 8929
+}, {
+  "codigo" : 8,
+  "nombre" : "app8k",
+  "descripcion" : "Descripción de ejemplo 7",
+  "tamanioKb" : 341.427670373527,
+  "descargas" : 11935
+}, {
+  "codigo" : 9,
+  "nombre" : "app9i",
+  "descripcion" : "Descripción de ejemplo 9",
+  "tamanioKb" : 213.91909744833663,
+  "descargas" : 23107
+}, {
+  "codigo" : 10,
+  "nombre" : "app10t",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 479.67881000752953,
+  "descargas" : 40962
+}, {
+  "codigo" : 11,
+  "nombre" : "app11k",
+  "descripcion" : "Descripción de ejemplo 5",
+  "tamanioKb" : 331.4954004522732,
+  "descargas" : 27962
+}, {
+  "codigo" : 12,
+  "nombre" : "app12h",
+  "descripcion" : "Descripción de ejemplo 1",
+  "tamanioKb" : 932.5936972698935,
+  "descargas" : 49828
+}, {
+  "codigo" : 13,
+  "nombre" : "app13a",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 127.81136170807756,
+  "descargas" : 1644
+}, {
+  "codigo" : 14,
+  "nombre" : "app14r",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 266.6798947690938,
+  "descargas" : 6431
+}, {
+  "codigo" : 15,
+  "nombre" : "app15h",
+  "descripcion" : "Descripción de ejemplo 1",
+  "tamanioKb" : 314.13236140919196,
+  "descargas" : 20150
+}, {
+  "codigo" : 16,
+  "nombre" : "app16o",
+  "descripcion" : "Descripción de ejemplo 7",
+  "tamanioKb" : 693.4486684775627,
+  "descargas" : 31637
+}, {
+  "codigo" : 17,
+  "nombre" : "app17o",
+  "descripcion" : "Descripción de ejemplo 1",
+  "tamanioKb" : 607.8074998553323,
+  "descargas" : 13932
+}, {
+  "codigo" : 18,
+  "nombre" : "app18j",
+  "descripcion" : "Descripción de ejemplo 8",
+  "tamanioKb" : 187.96159248662153,
+  "descargas" : 46912
+}, {
+  "codigo" : 19,
+  "nombre" : "app19e",
+  "descripcion" : "Descripción de ejemplo 8",
+  "tamanioKb" : 815.3795188708768,
+  "descargas" : 24721
+}, {
+  "codigo" : 20,
+  "nombre" : "app20y",
+  "descripcion" : "Descripción de ejemplo 3",
+  "tamanioKb" : 233.8167266368492,
+  "descargas" : 12575
+}, {
+  "codigo" : 21,
+  "nombre" : "app21m",
+  "descripcion" : "Descripción de ejemplo 7",
+  "tamanioKb" : 618.7680924442304,
+  "descargas" : 1137
+}, {
+  "codigo" : 22,
+  "nombre" : "app22k",
+  "descripcion" : "Descripción de ejemplo 10",
+  "tamanioKb" : 551.1778255718901,
+  "descargas" : 14046
+}, {
+  "codigo" : 23,
+  "nombre" : "app23j",
+  "descripcion" : "Descripción de ejemplo 5",
+  "tamanioKb" : 901.5598854213911,
+  "descargas" : 328
+}, {
+  "codigo" : 24,
+  "nombre" : "app24e",
+  "descripcion" : "Descripción de ejemplo 5",
+  "tamanioKb" : 377.37405220099976,
+  "descargas" : 28848
+}, {
+  "codigo" : 25,
+  "nombre" : "app25d",
+  "descripcion" : "Descripción de ejemplo 8",
+  "tamanioKb" : 624.9395075761854,
+  "descargas" : 20500
+}, {
+  "codigo" : 26,
+  "nombre" : "app26q",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 373.3485710635712,
+  "descargas" : 34138
+}, {
+  "codigo" : 27,
+  "nombre" : "app27m",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 690.7213680775883,
+  "descargas" : 33431
+}, {
+  "codigo" : 28,
+  "nombre" : "app28u",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 278.0405632204126,
+  "descargas" : 32674
+}, {
+  "codigo" : 29,
+  "nombre" : "app29q",
+  "descripcion" : "Descripción de ejemplo 2",
+  "tamanioKb" : 633.0880320714178,
+  "descargas" : 21934
+}, {
+  "codigo" : 30,
+  "nombre" : "app30v",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 300.1571309593926,
+  "descargas" : 5204
+}, {
+  "codigo" : 31,
+  "nombre" : "app31z",
+  "descripcion" : "Descripción de ejemplo 9",
+  "tamanioKb" : 472.0289679263923,
+  "descargas" : 40709
+}, {
+  "codigo" : 32,
+  "nombre" : "app32i",
+  "descripcion" : "Descripción de ejemplo 9",
+  "tamanioKb" : 341.5080396081304,
+  "descargas" : 29802
+}, {
+  "codigo" : 33,
+  "nombre" : "app33t",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 507.0036593188495,
+  "descargas" : 9574
+}, {
+  "codigo" : 34,
+  "nombre" : "app34j",
+  "descripcion" : "Descripción de ejemplo 2",
+  "tamanioKb" : 279.850641605145,
+  "descargas" : 44878
+}, {
+  "codigo" : 35,
+  "nombre" : "app35r",
+  "descripcion" : "Descripción de ejemplo 8",
+  "tamanioKb" : 303.2378957659513,
+  "descargas" : 33100
+}, {
+  "codigo" : 36,
+  "nombre" : "app36j",
+  "descripcion" : "Descripción de ejemplo 10",
+  "tamanioKb" : 338.3441138783601,
+  "descargas" : 26
+}, {
+  "codigo" : 37,
+  "nombre" : "app37o",
+  "descripcion" : "Descripción de ejemplo 2",
+  "tamanioKb" : 304.21303876884417,
+  "descargas" : 47131
+}, {
+  "codigo" : 38,
+  "nombre" : "app38r",
+  "descripcion" : "Descripción de ejemplo 10",
+  "tamanioKb" : 875.8448339530025,
+  "descargas" : 17045
+}, {
+  "codigo" : 39,
+  "nombre" : "app39v",
+  "descripcion" : "Descripción de ejemplo 9",
+  "tamanioKb" : 277.1920106309307,
+  "descargas" : 26860
+}, {
+  "codigo" : 40,
+  "nombre" : "app40z",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 732.5210215254834,
+  "descargas" : 13652
+}, {
+  "codigo" : 41,
+  "nombre" : "app41b",
+  "descripcion" : "Descripción de ejemplo 7",
+  "tamanioKb" : 267.78759080471065,
+  "descargas" : 41946
+}, {
+  "codigo" : 42,
+  "nombre" : "app42t",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 956.1934463708039,
+  "descargas" : 38074
+}, {
+  "codigo" : 43,
+  "nombre" : "app43j",
+  "descripcion" : "Descripción de ejemplo 7",
+  "tamanioKb" : 984.0608818215297,
+  "descargas" : 13179
+}, {
+  "codigo" : 44,
+  "nombre" : "app44v",
+  "descripcion" : "Descripción de ejemplo 1",
+  "tamanioKb" : 840.6426782374208,
+  "descargas" : 10789
+}, {
+  "codigo" : 45,
+  "nombre" : "app45i",
+  "descripcion" : "Descripción de ejemplo 1",
+  "tamanioKb" : 259.88720173664876,
+  "descargas" : 26692
+}, {
+  "codigo" : 46,
+  "nombre" : "app46o",
+  "descripcion" : "Descripción de ejemplo 6",
+  "tamanioKb" : 724.5762552897772,
+  "descargas" : 8963
+}, {
+  "codigo" : 47,
+  "nombre" : "app47d",
+  "descripcion" : "Descripción de ejemplo 4",
+  "tamanioKb" : 504.2424459606666,
+  "descargas" : 13425
+}, {
+  "codigo" : 48,
+  "nombre" : "app48p",
+  "descripcion" : "Descripción de ejemplo 9",
+  "tamanioKb" : 314.4166007350803,
+  "descargas" : 27476
+}, {
+  "codigo" : 49,
+  "nombre" : "app49i",
+  "descripcion" : "Descripción de ejemplo 2",
+  "tamanioKb" : 408.17400909483115,
+  "descargas" : 27096
+}, {
+  "codigo" : 50,
+  "nombre" : "app50c",
+  "descripcion" : "Descripción de ejemplo 5",
+  "tamanioKb" : 238.2046552950144,
+  "descargas" : 110
+} ]

@@ -1,0 +1,303 @@
+{
+  "listaAplicaciones" : [ {
+    "codigo" : 1,
+    "nombre" : "app1z",
+    "descripcion" : "Descripción de ejemplo 2",
+    "tamanioKb" : 419.98796130407266,
+    "descargas" : 28023
+  }, {
+    "codigo" : 2,
+    "nombre" : "app2r",
+    "descripcion" : "Descripción de ejemplo 1",
+    "tamanioKb" : 383.5506859521765,
+    "descargas" : 4230
+  }, {
+    "codigo" : 3,
+    "nombre" : "app3d",
+    "descripcion" : "Descripción de ejemplo 9",
+    "tamanioKb" : 272.9529449841002,
+    "descargas" : 29124
+  }, {
+    "codigo" : 4,
+    "nombre" : "app4p",
+    "descripcion" : "Descripción de ejemplo 7",
+    "tamanioKb" : 697.1584835662186,
+    "descargas" : 12375
+  }, {
+    "codigo" : 5,
+    "nombre" : "app5g",
+    "descripcion" : "Descripción de ejemplo 2",
+    "tamanioKb" : 921.958947326782,
+    "descargas" : 2980
+  }, {
+    "codigo" : 6,
+    "nombre" : "app6q",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 974.6293325155864,
+    "descargas" : 47522
+  }, {
+    "codigo" : 7,
+    "nombre" : "app7i",
+    "descripcion" : "Descripción de ejemplo 3",
+    "tamanioKb" : 1017.6496815684717,
+    "descargas" : 52
+  }, {
+    "codigo" : 8,
+    "nombre" : "app8s",
+    "descripcion" : "Descripción de ejemplo 7",
+    "tamanioKb" : 119.24817735597847,
+    "descargas" : 47541
+  }, {
+    "codigo" : 9,
+    "nombre" : "app9m",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 188.8972837786522,
+    "descargas" : 49295
+  }, {
+    "codigo" : 10,
+    "nombre" : "app10h",
+    "descripcion" : "Descripción de ejemplo 2",
+    "tamanioKb" : 240.79537868216005,
+    "descargas" : 13417
+  }, {
+    "codigo" : 11,
+    "nombre" : "app11g",
+    "descripcion" : "Descripción de ejemplo 9",
+    "tamanioKb" : 595.5410643158457,
+    "descargas" : 46680
+  }, {
+    "codigo" : 12,
+    "nombre" : "app12r",
+    "descripcion" : "Descripción de ejemplo 9",
+    "tamanioKb" : 427.69732466626476,
+    "descargas" : 26708
+  }, {
+    "codigo" : 13,
+    "nombre" : "app13w",
+    "descripcion" : "Descripción de ejemplo 2",
+    "tamanioKb" : 316.91116777656566,
+    "descargas" : 48901
+  }, {
+    "codigo" : 14,
+    "nombre" : "app14r",
+    "descripcion" : "Descripción de ejemplo 5",
+    "tamanioKb" : 782.9156549173917,
+    "descargas" : 18783
+  }, {
+    "codigo" : 15,
+    "nombre" : "app15t",
+    "descripcion" : "Descripción de ejemplo 3",
+    "tamanioKb" : 900.652972808309,
+    "descargas" : 1417
+  }, {
+    "codigo" : 16,
+    "nombre" : "app16t",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 804.0578706135229,
+    "descargas" : 12685
+  }, {
+    "codigo" : 17,
+    "nombre" : "app17s",
+    "descripcion" : "Descripción de ejemplo 3",
+    "tamanioKb" : 739.7248644700395,
+    "descargas" : 28313
+  }, {
+    "codigo" : 18,
+    "nombre" : "app18j",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 383.414755185611,
+    "descargas" : 8163
+  }, {
+    "codigo" : 19,
+    "nombre" : "app19m",
+    "descripcion" : "Descripción de ejemplo 7",
+    "tamanioKb" : 326.2965575092984,
+    "descargas" : 43928
+  }, {
+    "codigo" : 20,
+    "nombre" : "app20u",
+    "descripcion" : "Descripción de ejemplo 9",
+    "tamanioKb" : 555.1890673693231,
+    "descargas" : 35589
+  }, {
+    "codigo" : 21,
+    "nombre" : "app21r",
+    "descripcion" : "Descripción de ejemplo 1",
+    "tamanioKb" : 299.04199761586375,
+    "descargas" : 42480
+  }, {
+    "codigo" : 22,
+    "nombre" : "app22q",
+    "descripcion" : "Descripción de ejemplo 8",
+    "tamanioKb" : 878.7057586102025,
+    "descargas" : 23758
+  }, {
+    "codigo" : 23,
+    "nombre" : "app23c",
+    "descripcion" : "Descripción de ejemplo 8",
+    "tamanioKb" : 560.5527083040561,
+    "descargas" : 45590
+  }, {
+    "codigo" : 24,
+    "nombre" : "app24m",
+    "descripcion" : "Descripción de ejemplo 10",
+    "tamanioKb" : 798.9076159317286,
+    "descargas" : 14147
+  }, {
+    "codigo" : 25,
+    "nombre" : "app25p",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 312.4635420677736,
+    "descargas" : 383
+  }, {
+    "codigo" : 26,
+    "nombre" : "app26r",
+    "descripcion" : "Descripción de ejemplo 7",
+    "tamanioKb" : 684.1387243763755,
+    "descargas" : 39042
+  }, {
+    "codigo" : 27,
+    "nombre" : "app27c",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 626.6563579944773,
+    "descargas" : 11396
+  }, {
+    "codigo" : 28,
+    "nombre" : "app28l",
+    "descripcion" : "Descripción de ejemplo 5",
+    "tamanioKb" : 518.5937148153062,
+    "descargas" : 48328
+  }, {
+    "codigo" : 29,
+    "nombre" : "app29y",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 266.74070897730854,
+    "descargas" : 17458
+  }, {
+    "codigo" : 30,
+    "nombre" : "app30q",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 551.2232916410035,
+    "descargas" : 26524
+  }, {
+    "codigo" : 31,
+    "nombre" : "app31l",
+    "descripcion" : "Descripción de ejemplo 10",
+    "tamanioKb" : 488.7752464233803,
+    "descargas" : 7778
+  }, {
+    "codigo" : 32,
+    "nombre" : "app32r",
+    "descripcion" : "Descripción de ejemplo 5",
+    "tamanioKb" : 261.113672877187,
+    "descargas" : 49793
+  }, {
+    "codigo" : 33,
+    "nombre" : "app33k",
+    "descripcion" : "Descripción de ejemplo 6",
+    "tamanioKb" : 107.19128547737708,
+    "descargas" : 39675
+  }, {
+    "codigo" : 34,
+    "nombre" : "app34p",
+    "descripcion" : "Descripción de ejemplo 8",
+    "tamanioKb" : 797.6482873091111,
+    "descargas" : 30653
+  }, {
+    "codigo" : 35,
+    "nombre" : "app35x",
+    "descripcion" : "Descripción de ejemplo 6",
+    "tamanioKb" : 821.1467935621755,
+    "descargas" : 16082
+  }, {
+    "codigo" : 36,
+    "nombre" : "app36o",
+    "descripcion" : "Descripción de ejemplo 2",
+    "tamanioKb" : 387.3272802235445,
+    "descargas" : 13731
+  }, {
+    "codigo" : 37,
+    "nombre" : "app37m",
+    "descripcion" : "Descripción de ejemplo 2",
+    "tamanioKb" : 440.2864829379587,
+    "descargas" : 2773
+  }, {
+    "codigo" : 38,
+    "nombre" : "app38o",
+    "descripcion" : "Descripción de ejemplo 5",
+    "tamanioKb" : 864.7867719902895,
+    "descargas" : 44385
+  }, {
+    "codigo" : 39,
+    "nombre" : "app39m",
+    "descripcion" : "Descripción de ejemplo 7",
+    "tamanioKb" : 257.841501818678,
+    "descargas" : 7385
+  }, {
+    "codigo" : 40,
+    "nombre" : "app40g",
+    "descripcion" : "Descripción de ejemplo 5",
+    "tamanioKb" : 945.2211054366632,
+    "descargas" : 1248
+  }, {
+    "codigo" : 41,
+    "nombre" : "app41u",
+    "descripcion" : "Descripción de ejemplo 3",
+    "tamanioKb" : 372.5727129837263,
+    "descargas" : 33525
+  }, {
+    "codigo" : 42,
+    "nombre" : "app42y",
+    "descripcion" : "Descripción de ejemplo 10",
+    "tamanioKb" : 112.22304290560213,
+    "descargas" : 109
+  }, {
+    "codigo" : 43,
+    "nombre" : "app43d",
+    "descripcion" : "Descripción de ejemplo 6",
+    "tamanioKb" : 631.4378563013145,
+    "descargas" : 13491
+  }, {
+    "codigo" : 44,
+    "nombre" : "app44f",
+    "descripcion" : "Descripción de ejemplo 7",
+    "tamanioKb" : 490.8995854096815,
+    "descargas" : 48458
+  }, {
+    "codigo" : 45,
+    "nombre" : "app45s",
+    "descripcion" : "Descripción de ejemplo 4",
+    "tamanioKb" : 705.8904695510523,
+    "descargas" : 47492
+  }, {
+    "codigo" : 46,
+    "nombre" : "app46o",
+    "descripcion" : "Descripción de ejemplo 3",
+    "tamanioKb" : 422.9851946902137,
+    "descargas" : 16012
+  }, {
+    "codigo" : 47,
+    "nombre" : "app47s",
+    "descripcion" : "Descripción de ejemplo 9",
+    "tamanioKb" : 148.2311514154755,
+    "descargas" : 2143
+  }, {
+    "codigo" : 48,
+    "nombre" : "app48b",
+    "descripcion" : "Descripción de ejemplo 3",
+    "tamanioKb" : 651.3076851849672,
+    "descargas" : 43986
+  }, {
+    "codigo" : 49,
+    "nombre" : "app49f",
+    "descripcion" : "Descripción de ejemplo 5",
+    "tamanioKb" : 154.661937190991,
+    "descargas" : 7943
+  }, {
+    "codigo" : 50,
+    "nombre" : "app50x",
+    "descripcion" : "Descripción de ejemplo 1",
+    "tamanioKb" : 583.7282750070231,
+    "descargas" : 17556
+  } ]
+}

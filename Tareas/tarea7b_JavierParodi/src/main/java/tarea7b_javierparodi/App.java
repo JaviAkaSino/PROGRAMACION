@@ -7,11 +7,19 @@ package tarea7b_javierparodi;
 import java.util.Random;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author javiakasino
  */
+
+// Anotación @XmlRootElement, nombre de la etiqueta XML raíz.
+@XmlRootElement(name = "aplicacion")
+// Anotación @XmlAccesorType define el elemento que usará JAXB durante el 
+// procesamiento de datos (en este caso por atributo)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class App {
 
     /*11.- Crea la clase App, con los siguientes atributos: código único (int), 
