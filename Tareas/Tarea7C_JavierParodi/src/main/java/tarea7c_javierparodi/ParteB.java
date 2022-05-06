@@ -103,15 +103,18 @@ public class ParteB {
     
         /*g) Mostrar por consola los profesores que tienen clase a primera hora de 
             la mañana.*/
+        
+        System.out.println("\nProfesores con clase a última hora");
     
-        List<String> profesAUltima = lista.stream()
+        lista.stream()
                 .filter(h->h.getHoraDia()==1)
                 .map(h->h.getInicialesProfesor())
                 .distinct()
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
                 
-        System.out.println("\nProfesores con clase a última hora");
-        System.out.println(profesAUltima);
+        
+       
    
 
 

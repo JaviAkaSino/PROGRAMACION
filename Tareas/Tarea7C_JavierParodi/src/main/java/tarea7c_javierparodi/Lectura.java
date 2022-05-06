@@ -5,12 +5,8 @@
  */
 package tarea7c_javierparodi;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -22,32 +18,6 @@ import java.util.logging.Logger;
  */
 public class Lectura {
 
-    public static ArrayList<String> leerFicheroListaString(String ruta) {
-
-        ArrayList<String> lista = new ArrayList<>();
-
-        // Variables para guardar los datos que se van leyendo
-        String linea;
-
-        try (Scanner datosFichero = new Scanner(new FileReader(ruta))) {
-
-            // Mientras haya líneas por leer
-            while (datosFichero.hasNextLine()) {
-
-                linea = datosFichero.nextLine(); //Se lee la línea
-
-                lista.add(linea);
-
-                System.out.println(linea);
-
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Lectura.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
-
-        return lista;
-    }
 
     public static ArrayList<HoraClase> listarFicheroHorario(String ruta) {
 
