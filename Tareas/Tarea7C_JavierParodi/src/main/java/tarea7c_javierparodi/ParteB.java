@@ -6,6 +6,7 @@
 package tarea7c_javierparodi;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,9 +34,11 @@ public class ParteB {
         ArrayList<HoraClase> lista = Lectura.listarFicheroHorario(ruta);
  
         //Ordena por dia y hora
+        Comparator<HoraClase> ordenDia = (h1, h2) -> Integer.compare(h1.getDiaSemana(), h2.getDiaSemana());
+        Comparator<HoraClase> ordenHora = (h1, h2) -> Integer.compare(h1.getHoraDia(), h2.getHoraDia());
+        
         lista.stream()
-                .sorted((h1,h2)->Integer.compare(h1.getDiaSemana(), h2.getDiaSemana()))
-                .sorted((h1,h2)->Integer.compare(h1.getHoraDia(), h2.getHoraDia()));
+                .sorted(ordenDia.thenComparing(ordenHora));
 
         //lista.forEach(System.out::println);
         

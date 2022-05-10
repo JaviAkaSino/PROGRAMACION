@@ -23,6 +23,8 @@ public class Ejercicio13 {
         /* En un programa Java, procede a leer el fichero JSON generado en el 
         ejercicio 11 y muestra el resultado por pantalla.*/
         
+        //OJO -- LEER EL JASON CON UNA LISTA DE MAPs
+        
         ArrayList<App> apps = new ArrayList<>();
         ObjectMapper mapeador = new ObjectMapper();
 

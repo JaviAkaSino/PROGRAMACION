@@ -27,9 +27,10 @@ public class ParteA {
         ArrayList<HoraClase> lista = Lectura.listarFicheroHorario(ruta);
 
         //Ordena por dia y hora
-        lista.stream()
-                .sorted((h1, h2) -> Integer.compare(h1.getDiaSemana(), h2.getDiaSemana()))
-                .sorted((h1, h2) -> Integer.compare(h1.getHoraDia(), h2.getHoraDia()));
+                Comparator<HoraClase> ordenDia = (h1, h2) -> Integer.compare(h1.getDiaSemana(), h2.getDiaSemana());
+                Comparator<HoraClase> ordenHora = (h1, h2) -> Integer.compare(h1.getHoraDia(), h2.getHoraDia());
+                
+                Collections.sort(lista, ordenDia.thenComparing(ordenHora));
 
         //lista.forEach(System.out::println);
         /*El conjunto de grupos y de iniciales de profesores se guardarán en dos
