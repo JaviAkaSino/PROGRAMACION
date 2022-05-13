@@ -1,6 +1,14 @@
 *.class
 *.lst
 *.netbeans_automatic_build
+*org.eclipse.jdt.core.prefs
+*org.eclipse.core.resources.prefs
+*.classpath
+*private.properties
+*.gitignore
+
+
+
 /PokinoJavierParodi/target/
 /Herencia/target/
 /Practicas/p61JavierParodiPinero/target/
