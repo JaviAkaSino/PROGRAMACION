@@ -22,6 +22,12 @@ public class Prueba {
 
         System.out.println(listaRondas);
         
+        for (Ronda r : listaRondas) {
+            
+            System.out.println( Metodos.cartaParaEscalera(r));
+           
+        }
+        
         
     }
     

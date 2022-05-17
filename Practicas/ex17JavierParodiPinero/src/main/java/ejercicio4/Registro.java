@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Registro {
     
     @JsonProperty("fecha")
-    private String fecha;
+    private LocalDate fecha;
     @JsonProperty("estacionMeteorologica")
     private String estacionMeteorologica;
     @JsonProperty("provincia")
@@ -25,27 +25,19 @@ public class Registro {
 
     
     
-    public Registro(ArrayList<Integer> fecha, String estacionMeteorologica, String provincia, double precipitacion) {
+    public Registro(LocalDate fecha, String estacionMeteorologica, String provincia, double precipitacion) {
         
-        this.fecha = fecha.toString();//LocalDate.of(fecha.get(0), fecha.get(1), fecha.get(2));
+        this.fecha = fecha;//LocalDate.of(fecha.get(0), fecha.get(1), fecha.get(2));
         this.estacionMeteorologica = estacionMeteorologica;
         this.provincia = provincia;
         this.precipitacion = precipitacion;
     }
 
-//    public LocalDate getFecha() {
-//        return fecha;
-//    }
-//
-//    public void setFecha(LocalDate fecha) {
-//        this.fecha = fecha;
-//    }
-
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
     

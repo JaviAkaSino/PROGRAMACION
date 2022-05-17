@@ -41,6 +41,66 @@ public class Carta implements Comparable<Carta> {
         this.palo = palo;
     }
     
+    public void darValorCarta(int valor) {
+
+        
+        switch(valor){
+            
+            case 2:
+                this.setValor(Valores.DOS);
+                break;
+                
+            case 3:
+                this.setValor(Valores.TRES);
+                break;
+        
+            case 4:
+                this.setValor(Valores.CUATRO);            
+                break;
+                
+            case 5:
+                this.setValor(Valores.CINCO);            
+                break;
+                
+            case 6:  
+                this.setValor(Valores.SEIS);
+                break;        
+                
+            case 7:
+                this.setValor(Valores.SIETE);    
+                break;
+                
+            case 8:
+                this.setValor(Valores.OCHO);            
+                break;
+                
+            case 9:
+                this.setValor(Valores.NUEVE);            
+                break;
+                
+            case 10:
+                this.setValor(Valores.DIEZ);            
+                break;
+                
+            case 11:
+                this.setValor(Valores.JACK);
+                break;
+              
+            case 12:
+                this.setValor(Valores.QUEEN);            
+                break;
+                
+            case 13:
+                this.setValor(Valores.KING);           
+                break;
+            case 14:
+                this.setValor(Valores.AS);            
+                break;
+                        
+        }
+        
+    }
+    
     //Da el valor a la carte en funcion al 
     public void darValorCarta(String valor) {
 

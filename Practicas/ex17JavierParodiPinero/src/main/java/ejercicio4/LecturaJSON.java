@@ -6,6 +6,7 @@
 package ejercicio4;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class LecturaJSON {
         
         ArrayList<Registro> registros = new ArrayList<>();
         ObjectMapper mapeador = new ObjectMapper();
+         mapeador.registerModule(new JavaTimeModule());
 
         try {
             registros.addAll(mapeador.readValue(new File("precipitacionesBadajoz.json"),
@@ -36,7 +38,7 @@ public class LecturaJSON {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
     }
