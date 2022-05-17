@@ -1,7 +1,7 @@
 /*
  * Clase que implementa la interface IPersona
  */
-package javierparodipinero;
+package conexionbbdd;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -17,11 +17,11 @@ import java.util.List;
  *
  * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
  */
-public class PersonaDAO implements IPersona {
+public class PreguntaDAO implements IPersona {
 
     private Connection conexion = null;
 
-    public PersonaDAO() {
+    public PreguntaDAO() {
     	conexion = Conexion.getInstance();
     }
 

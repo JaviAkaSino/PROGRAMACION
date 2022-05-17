@@ -1,11 +1,9 @@
 /*
  * Clase que implementa la interface IPersona
  */
-package conexionbbdd;
+package javierparodipinero;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,37 +11,34 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
- */
-public class PersonaDAO implements IPersona {
+public class PreguntaDAO implements IPregunta {
 
     private Connection conexion = null;
 
-    public PersonaDAO() {
+    public PreguntaDAO() {
     	conexion = Conexion.getInstance();
     }
 
     @Override
-    public List<PersonaVO> getAll() throws SQLException {
-        List<PersonaVO> lista = new ArrayList<>();
+    public List<PreguntaVO> getAll() throws SQLException {
+        List<PreguntaVO> lista = new ArrayList<>();
 
         // Preparamos la consulta de datos mediante un objeto Statement
         // ya que no necesitamos parametrizar la sentencia SQL
         try (Statement st = conexion.createStatement()) {
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
-            ResultSet res = st.executeQuery("select * from persona");
+            ResultSet res = st.executeQuery("select * from preguntas");
             // Ahora construimos la lista, recorriendo el ResultSet y mapeando los datos
             while (res.next()) {
-                PersonaVO p = new PersonaVO();
+            	PreguntaVO pregunta = new PreguntaVO();
                 // Recogemos los datos de la persona, guardamos en un objeto
-                p.setPk(res.getInt("pk"));
-                p.setNombre(res.getString("nombre"));
-                p.setFechaNacimiento(res.getDate("fecha_nac").toLocalDate());
+            	pregunta.setCodpregunta(res.getInt("codpregunta"));
+            	pregunta.setCodorientador(res.getInt("codorientador"));
+            	pregunta.setTextopreg(res.getString("textopreg"));
+            	pregunta.setNivelconcrecion(res.getInt("nivelconcrecion"));
 
                 //Añadimos el objeto a la lista
-                lista.add(p);
+                lista.add(pregunta);
             }
         }
 
@@ -51,16 +46,16 @@ public class PersonaDAO implements IPersona {
     }
 
     @Override
-    public PersonaVO findByPk(int pk) throws SQLException {
+    public PreguntaVO findByPk(int codpreg) throws SQLException {
 
         ResultSet res = null;
-        PersonaVO persona = new PersonaVO();
+        PreguntaVO pregunta = new PreguntaVO();
 
-        String sql = "select * from persona where pk=?";
+        String sql = "select * from preguntas where codpregunta=?";
 
         try (PreparedStatement prest = conexion.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
-            prest.setInt(1, pk);
+            prest.setInt(1, codpreg);
 
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
             res = prest.executeQuery();
@@ -69,10 +64,12 @@ public class PersonaDAO implements IPersona {
             // si existe esa pk
             if (res.next()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
-                persona.setPk(res.getInt("pk"));
-                persona.setNombre(res.getString("nombre"));
-                persona.setFechaNacimiento(res.getDate("fecha_nac").toLocalDate());
-                return persona;
+            	pregunta.setCodpregunta(res.getInt("codpregunta"));
+            	pregunta.setCodorientador(res.getInt("codorientador"));
+            	pregunta.setTextopreg(res.getString("textopreg"));
+            	pregunta.setNivelconcrecion(res.getInt("nivelconcrecion"));
+                
+                return pregunta;
             }
 
             return null;
@@ -80,12 +77,12 @@ public class PersonaDAO implements IPersona {
     }
 
     @Override
-    public int insertPersona(PersonaVO persona) throws SQLException {
+    public int insertPregunta(PreguntaVO pregunta) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into persona values (?,?,?)";
+        String sql = "insert into preguntas values (?,?,?,?)";
 
-        if (findByPk(persona.getPk()) != null) {
+        if (findByPk(pregunta.getCodpregunta()) != null) {
             // Existe un registro con esa pk
             // No se hace la inserción
             return numFilas;
@@ -95,9 +92,10 @@ public class PersonaDAO implements IPersona {
             try (PreparedStatement prest = conexion.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-                prest.setInt(1, persona.getPk());
-                prest.setString(2, persona.getNombre());
-                prest.setDate(3, Date.valueOf(persona.getFechaNacimiento()));
+                prest.setInt(1, pregunta.getCodpregunta());
+                prest.setInt(2, pregunta.getCodorientador());
+                prest.setString(3, pregunta.getTextopreg());
+                prest.setInt(4, pregunta.getNivelconcrecion());
 
                 numFilas = prest.executeUpdate();
             }
@@ -107,20 +105,20 @@ public class PersonaDAO implements IPersona {
     }
 
     @Override
-    public int insertPersona(List<PersonaVO> lista) throws SQLException {
+    public int insertPregunta(List<PreguntaVO> lista) throws SQLException {
         int numFilas = 0;
 
-        for (PersonaVO tmp : lista) {
-            numFilas += insertPersona(tmp);
+        for (PreguntaVO tmp : lista) {
+            numFilas += insertPregunta(tmp);
         }
 
         return numFilas;
     }
 
     @Override
-    public int deletePersona() throws SQLException {
+    public int deletePregunta() throws SQLException {
 
-        String sql = "delete from persona";
+        String sql = "delete from preguntas";
 
         int nfilas = 0;
 
@@ -137,16 +135,16 @@ public class PersonaDAO implements IPersona {
     }
 
     @Override
-    public int deletePersona(PersonaVO persona) throws SQLException {
+    public int deletePregunta(PreguntaVO pregunta) throws SQLException {
         int numFilas = 0;
 
-        String sql = "delete from persona where pk = ?";
+        String sql = "delete from preguntas where codpregunta = ?";
 
         // Sentencia parametrizada
         try (PreparedStatement prest = conexion.prepareStatement(sql)) {
 
             // Establecemos los parámetros de la sentencia
-            prest.setInt(1, persona.getPk());
+            prest.setInt(1, pregunta.getCodpregunta());
             // Ejecutamos la sentencia
             numFilas = prest.executeUpdate();
         }
@@ -154,13 +152,13 @@ public class PersonaDAO implements IPersona {
     }
 
     @Override
-    public int updatePersona(int pk, PersonaVO nuevosDatos) throws SQLException {
+    public int updatePregunta(int codpreg, PreguntaVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update persona set nombre = ?, fecha_nac = ? where pk=?";
+        String sql = "update preguntas set codorientador = ?, textopreg = ?, nivelconcrecion = ? where codpregunta = ?";
 
-        if (findByPk(pk) == null) {
-            // La persona a actualizar no existe
+        if (findByPk(codpreg) == null) {
+            // La preutna a actualizar no existe
             return numFilas;
         } else {
             // Instanciamos el objeto PreparedStatement para inserción
@@ -168,33 +166,16 @@ public class PersonaDAO implements IPersona {
             try (PreparedStatement prest = conexion.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-                prest.setString(1, nuevosDatos.getNombre());
-                prest.setDate(2, Date.valueOf(nuevosDatos.getFechaNacimiento()));
-                prest.setInt(3, pk);
-
+            	
+                prest.setInt(1, nuevosDatos.getCodorientador());
+                prest.setString(2, nuevosDatos.getTextopreg());
+                prest.setInt(3, nuevosDatos.getNivelconcrecion());
+                prest.setInt(4, codpreg);
+                
                 numFilas = prest.executeUpdate();
             }
             return numFilas;
         }
-    }
-
-    public int cambiarNombres(String newName, String oldName) throws SQLException {
-
-        int res = 0;
-        // Dos ?, uno para newName y otro para oldName
-
-        String sql = "{call cambiar_nombres (?,?)}";
-
-        // Preparamos la llamada al procedimiento almacenado
-        try (CallableStatement call = conexion.prepareCall(sql)) {
-            // Establecemos parámetros a pasar al procedimiento
-            call.setString(1, newName);
-            call.setString(2, oldName);
-            // Ejecutamos el procedimiento
-            res = call.executeUpdate();
-            
-        }
-        return res;
     }
 
 

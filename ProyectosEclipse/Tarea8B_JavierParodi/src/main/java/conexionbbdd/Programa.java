@@ -15,7 +15,7 @@ public class Programa {
     public static void main(String[] args) {
         
         
-        PersonaDAO daoPersona = new PersonaDAO();
+        PreguntaDAO daoPersona = new PreguntaDAO();
         List<PersonaVO> listaPersonas = new ArrayList<>();
         listaPersonas.add(new PersonaVO(1,"Hugo Weston", LocalDate.of(1997, 6, 6)));
         listaPersonas.add(new PersonaVO(2,"Maria Weston", LocalDate.of(1967, 6, 6)));

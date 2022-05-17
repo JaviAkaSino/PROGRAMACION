@@ -1,23 +1,21 @@
 /*
- * Clase para mapear los datos de la tabla Persona
+ * Clase para mapear los datos de la tabla Pregunta
  */
 
 package javierparodipinero;
 
-import java.time.LocalDate;
-
 
 public class PreguntaVO {
-    private int codpreg;
+    private int codpregunta;
     private int codorientador;
     private String textopreg;
     private int nivelconcrecion; 
 
     
     
-    public PreguntaVO(int codpreg, int codorientador, String textopreg, int nivelconcrecion) {
+    public PreguntaVO(int codpregunta, int codorientador, String textopreg, int nivelconcrecion) {
 		super();
-		this.codpreg = codpreg;
+		this.codpregunta = codpregunta;
 		this.codorientador = codorientador;
 		this.textopreg = textopreg;
 		this.nivelconcrecion = nivelconcrecion;
@@ -30,13 +28,13 @@ public class PreguntaVO {
     
     
 
-    public int getCodpreg() {
-		return codpreg;
+    public int getCodpregunta() {
+		return codpregunta;
 	}
 
 
-	public void setCodpreg(int codpreg) {
-		this.codpreg = codpreg;
+	public void setCodpregunta(int codpregunta) {
+		this.codpregunta = codpregunta;
 	}
 
 
@@ -72,7 +70,7 @@ public class PreguntaVO {
 
 	@Override
 	public String toString() {
-		return "PreguntaVO [codpreg=" + codpreg + ", codorientador=" + codorientador + ", textopreg=" + textopreg
+		return "PreguntaVO [codpregunta=" + codpregunta + ", codorientador=" + codorientador + ", textopreg=" + textopreg
 				+ ", nivelconcrecion=" + nivelconcrecion + "]";
 	}
 

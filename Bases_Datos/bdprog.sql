@@ -11,7 +11,6 @@ responden (+(coduser*, codpregunta*), afinidad)
 create database if not exists bdprog;
 use bdprog;
 
-
 create table if not exists usuarios
 (
 	coduser int not null,
@@ -67,7 +66,8 @@ create table if not exists preguntas
     constraint fk_preguntas_orientadores foreign key (codorientador)
     references orientadores (codorientador)
 );
-
+/*DELETE FROM responden;
+DELETE FROM PREGUNTAS preguntas;*/
 INSERT INTO preguntas
 VALUES
 	(1, 1, 'Texto pregunta número 1', 5),
