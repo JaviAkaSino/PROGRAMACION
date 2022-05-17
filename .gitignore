@@ -6,7 +6,8 @@
 *.classpath
 *private.properties
 *.gitignore
-
+*.m2e.core.prefs
+*.project
 
 
 /PokinoJavierParodi/target/
