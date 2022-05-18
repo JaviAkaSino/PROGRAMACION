@@ -36,7 +36,7 @@ public class Programa {
             System.out.println("-----------------------------------------");
             
             
-            System.out.println("Persona con primary key 1: ");
+            System.out.println("Pregunta con primary key 1: ");
             System.out.println(daoPregunta.findByPk(1));
             
             
