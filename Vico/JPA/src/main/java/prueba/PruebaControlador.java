@@ -32,6 +32,7 @@ public class PruebaControlador {
 		v.setMarca("Ford");
 		v.setModelo("Fiesta");
 		v.setPrecio(13.00);
+		
 		cv.createVehiculo(v); // Si está creada lanzará una excepción
 
 		// Se obtienen todas las instancias

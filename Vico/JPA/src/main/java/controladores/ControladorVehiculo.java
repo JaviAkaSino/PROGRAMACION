@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -51,7 +52,10 @@ public class ControladorVehiculo {
 	}
 
 	public void createVehiculo(Vehiculo v) {
-		this.em = entityManagerFactory.createEntityManager();
+		
+		try {
+			
+			this.em = entityManagerFactory.createEntityManager();
 		// En este caso es necesario iniciar una transacción en la base de datos
 		// porque vamos a persistir información en la misma
 		this.em.getTransaction().begin();
@@ -62,6 +66,13 @@ public class ControladorVehiculo {
 		this.em.getTransaction().commit();
 		// Cierra el entityManager
 		this.em.close();
+			
+		} catch (NonUniqueResultException nure) {
+			
+			System.out.println(nure.getMessage());
+		}
+		
+		
 	}
 
 	public Vehiculo findByPK(int pk) {
