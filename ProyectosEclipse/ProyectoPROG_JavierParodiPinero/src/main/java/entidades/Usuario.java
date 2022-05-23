@@ -66,7 +66,9 @@ public class Usuario implements Serializable {
 	}
 
 	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+		if(telefono.length()<=12) {
+			this.telefono = telefono;
+		}	
 	}
 
 	@Override

@@ -22,10 +22,10 @@ public class Pregunta implements Serializable {
 
 	private String textopreg;
 
-	//uni-directional many-to-one association to Orientador
+	//bi-directional many-to-one association to Orientador
 	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="codorientador"/*referencedCoumnName="codorientador", insertable=false, updatable=false)*/)
-	private Orientador orientador;
+	@JoinColumn(name="codorientador")
+	private Orientador Orientador;
 
 	public Pregunta() {
 	}
@@ -55,17 +55,17 @@ public class Pregunta implements Serializable {
 	}
 
 	public Orientador getOrientador() {
-		return this.orientador;
+		return this.Orientador;
 	}
 
-	public void setOrientador(Orientador orientador) {
-		this.orientador = orientador;
+	public void setOrientador(Orientador Orientador) {
+		this.Orientador = Orientador;
 	}
 
 	@Override
 	public String toString() {
 		return "Pregunta [codpregunta=" + codpregunta + ", nivelconcrecion=" + nivelconcrecion + ", textopreg="
-				+ textopreg + ", orientador=" + orientador + "]";
+				+ textopreg + ", Orientador=" + Orientador + "]";
 	}
 
 }

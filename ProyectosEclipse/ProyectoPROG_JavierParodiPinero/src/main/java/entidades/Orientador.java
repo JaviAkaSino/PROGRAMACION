@@ -2,14 +2,15 @@ package entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
- * The persistent class for the orientadores database table.
+ * The persistent class for the Orientadors database table.
  * 
  */
 @Entity
-@Table(name="orientadores")
+@Table(name="Orientadores")
 @NamedQuery(name="Orientador.findAll", query="SELECT o FROM Orientador o")
 public class Orientador implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +27,10 @@ public class Orientador implements Serializable {
 	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name="coduser")
 	private Usuario usuario;
+
+	//bi-directional many-to-one association to Pregunta
+	@OneToMany(mappedBy="Orientador")
+	private List<Pregunta> preguntas;
 
 	public Orientador() {
 	}
@@ -62,10 +67,33 @@ public class Orientador implements Serializable {
 		this.usuario = usuario;
 	}
 
+	public List<Pregunta> getPreguntas() {
+		return this.preguntas;
+	}
+
+	public void setPreguntas(List<Pregunta> preguntas) {
+		this.preguntas = preguntas;
+	}
+
+	public Pregunta addPregunta(Pregunta pregunta) {
+		getPreguntas().add(pregunta);
+		pregunta.setOrientador(this);
+
+		return pregunta;
+	}
+
+	public Pregunta removePregunta(Pregunta pregunta) {
+		getPreguntas().remove(pregunta);
+		pregunta.setOrientador(null);
+
+		return pregunta;
+	}
+
 	@Override
 	public String toString() {
 		return "Orientador [codorientador=" + codorientador + ", antiguedad=" + antiguedad + ", salario=" + salario
-				+ ", usuario=" + usuario + "]";
+				+ ", usuario=" + usuario + ", preguntas=" + preguntas + "]";
 	}
+	
 
 }

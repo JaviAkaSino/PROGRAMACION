@@ -1,7 +1,5 @@
 package appfinal;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class Programa {
@@ -10,7 +8,7 @@ public class Programa {
 
 		String[] listaTablas = {"Usuarios","Orientadores","Preguntas", "Salir"};
 		
-		int opcion = JOptionPane.showOptionDialog(null, "Seleccione una tabla de la base de datos","Elegir", 
+		int opcion = JOptionPane.showOptionDialog(null, "Seleccione una tabla de la base de datos","Tablas", 
 				0, 1, null, listaTablas, null);
 		
 		switch(opcion) {

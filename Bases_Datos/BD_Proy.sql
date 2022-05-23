@@ -7,7 +7,7 @@ orientadores (+codorientador, coduser*, antiguedad, salario)
 preguntas (+codpregunta, codorientador*, textopreg, nivelconcrecion)
 responden (+(coduser*, codpregunta*), afinidad)
 */
-drop database BD_Prog;
+drop database if exists BD_prog;
 create database if not exists BD_Prog;
 use BD_Prog;
 
@@ -37,7 +37,7 @@ VALUES
 create table if not exists orientadores
 (
 	codorientador int not null AUTO_INCREMENT,
-    coduser int,
+    coduser int default 0,
     antiguedad int,
     salario decimal(7,2),
     
@@ -58,7 +58,7 @@ VALUES
 create table if not exists preguntas
 (
 	codpregunta int not null AUTO_INCREMENT,
-    codorientador int,
+    codorientador int default 0,
     textopreg varchar(100),
     nivelconcrecion tinyint,
     
@@ -76,7 +76,8 @@ VALUES
     (3, 2, 'Texto pregunta número 3', 25),
     (4, 3, 'Texto pregunta número 4', 50);
 
-    
+
+SET FOREIGN_KEY_CHECKS = 1;
     
     
     
