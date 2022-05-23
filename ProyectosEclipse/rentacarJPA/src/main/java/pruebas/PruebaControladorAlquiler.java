@@ -47,6 +47,7 @@ public class PruebaControladorAlquiler {
 		v1.setDisponible(true);
 		v1.setMarca("Halcón");
 		v1.setModelo("Milenario");
+		
 
 		// Creación del alquiler
 		Alquiler a1 = new Alquiler();

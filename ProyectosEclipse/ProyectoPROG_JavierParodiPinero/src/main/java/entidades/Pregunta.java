@@ -14,16 +14,18 @@ import javax.persistence.*;
 public class Pregunta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int codpregunta;
 
 	private int nivelconcrecion;
 
 	private String textopreg;
 
-	//bi-directional many-to-one association to Orientador
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="codorientador")
-	private Orientador orientadore;
+	//uni-directional many-to-one association to Orientador
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="codorientador"/*referencedCoumnName="codorientador", insertable=false, updatable=false)*/)
+	private Orientador orientador;
 
 	public Pregunta() {
 	}
@@ -52,12 +54,18 @@ public class Pregunta implements Serializable {
 		this.textopreg = textopreg;
 	}
 
-	public Orientador getOrientadore() {
-		return this.orientadore;
+	public Orientador getOrientador() {
+		return this.orientador;
 	}
 
-	public void setOrientadore(Orientador orientadore) {
-		this.orientadore = orientadore;
+	public void setOrientador(Orientador orientador) {
+		this.orientador = orientador;
+	}
+
+	@Override
+	public String toString() {
+		return "Pregunta [codpregunta=" + codpregunta + ", nivelconcrecion=" + nivelconcrecion + ", textopreg="
+				+ textopreg + ", orientador=" + orientador + "]";
 	}
 
 }

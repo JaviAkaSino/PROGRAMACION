@@ -2,11 +2,7 @@ package controladores;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 
 import entidades.Orientador;
 
@@ -48,7 +44,7 @@ public class ControladorOrientador {
 	public Orientador findByPK(int pk) {
 		this.em = entityManagerFactory.createEntityManager();
 		Orientador aux = null;
-		this.consulta = em.createNativeQuery("Select * from Orientador where codorientador = ?", Orientador.class);
+		this.consulta = em.createNativeQuery("Select * from orientadores where codorientador = ?", Orientador.class);
 		this.consulta.setParameter(1, pk);
 		try {
 			aux = (Orientador) consulta.getSingleResult();
@@ -63,7 +59,7 @@ public class ControladorOrientador {
 	public Orientador findByCoduser(String coduser) {
 		this.em = entityManagerFactory.createEntityManager();
 		Orientador aux = null;
-		this.consulta = em.createNativeQuery("Select * from Orientador where coduser = ?", Orientador.class);
+		this.consulta = em.createNativeQuery("Select * from orientadores where coduser = ?", Orientador.class);
 		this.consulta.setParameter(1, coduser);
 		try {
 			aux = (Orientador) consulta.getSingleResult();

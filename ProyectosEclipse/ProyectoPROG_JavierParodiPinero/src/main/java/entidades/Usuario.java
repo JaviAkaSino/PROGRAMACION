@@ -26,10 +26,6 @@ public class Usuario implements Serializable {
 
 	private String telefono;
 
-	//bi-directional one-to-one association to Orientador
-	@OneToOne(mappedBy="usuario", fetch=FetchType.LAZY)
-	private Orientador orientadore;
-
 	public Usuario() {
 	}
 
@@ -73,12 +69,10 @@ public class Usuario implements Serializable {
 		this.telefono = telefono;
 	}
 
-	public Orientador getOrientadore() {
-		return this.orientadore;
-	}
-
-	public void setOrientadore(Orientador orientadore) {
-		this.orientadore = orientadore;
+	@Override
+	public String toString() {
+		return "Usuario [coduser=" + coduser + ", email=" + email + ", nombre=" + nombre + ", residencia=" + residencia
+				+ ", telefono=" + telefono + "]";
 	}
 
 }

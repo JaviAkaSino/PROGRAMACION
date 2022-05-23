@@ -2,7 +2,6 @@ package entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -23,12 +22,8 @@ public class Orientador implements Serializable {
 
 	private double salario;
 
-	//bi-directional many-to-one association to Pregunta
-	@OneToMany(mappedBy="orientadore")
-	private List<Pregunta> preguntas;
-
-	//bi-directional one-to-one association to Usuario
-	@OneToOne(fetch=FetchType.LAZY)
+	//uni-directional one-to-one association to Usuario
+	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST)
 	@JoinColumn(name="coduser")
 	private Usuario usuario;
 
@@ -59,34 +54,18 @@ public class Orientador implements Serializable {
 		this.salario = salario;
 	}
 
-	public List<Pregunta> getPreguntas() {
-		return this.preguntas;
-	}
-
-	public void setPreguntas(List<Pregunta> preguntas) {
-		this.preguntas = preguntas;
-	}
-
-	public Pregunta addPregunta(Pregunta pregunta) {
-		getPreguntas().add(pregunta);
-		pregunta.setOrientadore(this);
-
-		return pregunta;
-	}
-
-	public Pregunta removePregunta(Pregunta pregunta) {
-		getPreguntas().remove(pregunta);
-		pregunta.setOrientadore(null);
-
-		return pregunta;
-	}
-
 	public Usuario getUsuario() {
 		return this.usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	@Override
+	public String toString() {
+		return "Orientador [codorientador=" + codorientador + ", antiguedad=" + antiguedad + ", salario=" + salario
+				+ ", usuario=" + usuario + "]";
 	}
 
 }

@@ -12,7 +12,7 @@ import entidades.Pregunta;
 
 public class ControladorPregunta {
 
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("rentacar");
+	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
 	private EntityManager em;
 	private Query consulta;
 
@@ -48,7 +48,7 @@ public class ControladorPregunta {
 	public Pregunta findByPK(int pk) {
 		this.em = entityManagerFactory.createEntityManager();
 		Pregunta aux = null;
-		this.consulta = em.createNativeQuery("Select * from Pregunta where codpregunta = ?", Pregunta.class);
+		this.consulta = em.createNativeQuery("Select * from preguntas where codpregunta = ?", Pregunta.class);
 		this.consulta.setParameter(1, pk);
 		try {
 			aux = (Pregunta) consulta.getSingleResult();

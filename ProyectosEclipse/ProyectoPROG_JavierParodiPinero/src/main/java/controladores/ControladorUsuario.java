@@ -2,11 +2,7 @@ package controladores;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 
 import entidades.Usuario;
 
@@ -48,7 +44,7 @@ public class ControladorUsuario {
 	public Usuario findByPK(int pk) {
 		this.em = entityManagerFactory.createEntityManager();
 		Usuario aux = null;
-		this.consulta = em.createNativeQuery("Select * from Usuario where coduser = ?", Usuario.class);
+		this.consulta = em.createNativeQuery("Select * from usuarios where coduser = ?", Usuario.class);
 		this.consulta.setParameter(1, pk);
 		try {
 			aux = (Usuario) consulta.getSingleResult();
@@ -63,7 +59,7 @@ public class ControladorUsuario {
 	public Usuario findByTelefono(String telefono) {
 		this.em = entityManagerFactory.createEntityManager();
 		Usuario aux = null;
-		this.consulta = em.createNativeQuery("Select * from Usuario where telefono = ?", Usuario.class);
+		this.consulta = em.createNativeQuery("Select * from usuarios where telefono = ?", Usuario.class);
 		this.consulta.setParameter(1, telefono);
 		try {
 			aux = (Usuario) consulta.getSingleResult();
