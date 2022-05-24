@@ -23,8 +23,7 @@ public class Utilidades {
 	public static int leerEnteroJOption(String mensaje) { //Lee un entero por JOptionPane con un mensaje dado
 		
 		int entero;
-		
-		
+	
 		String str = JOptionPane.showInputDialog(null, mensaje); //Guarda el resultado
 			
 		
@@ -45,6 +44,39 @@ public class Utilidades {
 		}
 	
 		return entero;
+		
+	}
+	
+	
+public static double leerDoubleJOption(String mensaje) { //Lee un entero por JOptionPane con un mensaje dado
+		
+		double numero;
+
+		String str = JOptionPane.showInputDialog(null, mensaje); //Guarda el resultado
+			
+		
+			try {
+				
+				if ( str == null) { //Si se pulsa cancelar o X se devuelve -1
+					
+					return -1; //Código que no se utilizará como pk (comodín)
+				}
+			
+				numero = Double.parseDouble(str); //Intenta parsearlo y salir del bucle
+	
+		} catch(NumberFormatException nfe) {
+
+			if ( str == null) { //Si se pulsa cancelar o X se devuelve -1
+				
+				return -1; //Código que no se utilizará como pk (comodín)
+			}
+			
+			JOptionPane.showMessageDialog(null, "Introducza un número decimal");
+			numero = leerEnteroJOption(mensaje); //Llama recursivamente al método
+			
+		}
+	
+		return numero;
 		
 	}
 	

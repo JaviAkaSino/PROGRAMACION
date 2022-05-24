@@ -175,13 +175,38 @@ public class GestionUsuario {
 				
 			case 1:// Cambiar residencia
 				
+				u.setResidencia(Utilidades.pedirStringLimitado(100,"Introduce la nueva residencia del usuario"));
+				
+				if(u.getResidencia()!=null) { //Si no se pulsa cancelar ni x, se guarda el cambio
+					
+					cu.modificarUsuario(u);				
+					
+				}	
+				
 				break;
 				
 			case 2: //Cambiar email
 				
+				u.setEmail(Utilidades.pedirStringLimitado(100,"Introduce el nuevo e-mail del usuario"));
+				
+				if(u.getEmail()!=null) { //Si no se pulsa cancelar ni x, se guarda el cambio
+					
+					cu.modificarUsuario(u);				
+					
+				}
+				
+				
 				break;
 				
 			case 3: //Cambiar telefono
+				
+				u.setTelefono(Utilidades.pedirStringLimitado(100,"Introduce el nuevo teléfono del usuario"));
+				
+				if(u.getTelefono()!=null) { //Si no se pulsa cancelar ni x, se guarda el cambio
+					
+					cu.modificarUsuario(u);				
+					
+				}
 				
 				break;
 		
@@ -199,6 +224,126 @@ public class GestionUsuario {
 		
 		
 	}
+	
+	
+	
+public static Usuario menuObtenerUsuario() {
+		
+		ControladorUsuario cu = new ControladorUsuario(); //Inicializa el controlador pertinente
+		
+		String[] listaOpciones = {"Nuevo usuario",	"Cargar usuario", "Salir"}; //Crea la lista de opciones
+		
+		boolean seguir = true;
+		Usuario u = new Usuario(); //Registro con el que se trabajará
+		
+		do {
+			//Aquí recoge la opción
+			int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción","Opciones", 
+					0, 1, null, listaOpciones, null);
+			
+			
+			
+			switch(opcion) {
+
+			case 0: //Crear registro
+				String aux;
+				//Pide los datos de los usuarios uno a uno, limitando su número de caracteres
+				//El método pedirStringLimitado(int, String), también impide recoger ""
+				
+				aux = Utilidades.pedirStringLimitado(100,"Introduce el nombre del nuevo usuario");
+		
+				if(aux==null) { //Si se pulsa cancelar o X, no pide mas datos
+					JOptionPane.showMessageDialog(null, "Operación cancelada");
+					break;
+				} //Si no, set nombre
+				
+				u.setNombre(aux);		
+				
+				
+				
+				
+				aux = Utilidades.pedirStringLimitado(30,"Introduce la residencia del nuevo usuario");
+				
+				if(aux==null) { //Si se pulsa cancelar o X, no pide mas datos
+					JOptionPane.showMessageDialog(null, "Operación cancelada");
+					break;
+				}
+				
+				u.setResidencia(aux);
+				
+				
+				
+				
+				aux = Utilidades.pedirStringLimitado(100,"Introduce el e-mail del nuevo usuario");
+
+				if(aux==null) { //Si se pulsa cancelar o X, no pide mas datos
+					JOptionPane.showMessageDialog(null, "Operación cancelada");
+					break;
+				}
+				
+				u.setEmail(aux);
+				
+				
+				
+				
+				aux = Utilidades.pedirStringLimitado(12,"Introduce el teléfono del nuevo usuario");
+				
+				if(aux ==null) { //Si se pulsa cancelar o X, no pide mas datos
+					JOptionPane.showMessageDialog(null, "Operación cancelada");
+					break;
+				}
+				
+				u.setTelefono(aux);
+				
+				seguir = false; //Ya esta creado el usuario, salir
+									
+				//Mejor que no se cree si no se hace el orientador
+				//cu.crearUsuario(u); //Si todos los datos se han dado, se crea el registro
+					
+				break;
+				
+			case 1: //Cargar registro
+				
+				boolean repetir = true;
+				
+				do {
+
+					int codigo = Utilidades.leerEnteroJOption("Introduce el código del usuario a cargar");						 
+					
+					u = cu.findByPK(codigo); //Iguala u al registro con la pk dada
+					
+					if(u != null) { // Si se ha encontrado el usuario
+						
+						return u; //Lo devuelve	
+						
+					} else if (codigo == -1){ // //Si se pulsa cancelar o X
+						
+						repetir = false; //Vuelve al menu de cargar o crear usuario
+						
+					} else {
+						
+						JOptionPane.showMessageDialog(null, "El registro no existe"); //Informa y vuelve a pedir
+					}
+					
+				}while(repetir);			
+				
+				break;
+
+			default: //Para incluir el 2, que es 'Salir' y la 'X'
+				
+				seguir = false;
+				
+				break;
+				
+			}
+			
+			
+			
+		} while (seguir);
+		
+		return u;
+	}
+	
 	
 	
 	

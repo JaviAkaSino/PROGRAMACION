@@ -25,6 +25,8 @@ public class Programa {
 				
 			case 1:
 				
+				GestionOrientador.menuGestionesOrientador();
+				
 				break;
 				
 			case 2: 
