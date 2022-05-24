@@ -91,8 +91,8 @@ public class Orientador implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Orientador [codorientador=" + codorientador + ", antiguedad=" + antiguedad + ", salario=" + salario
-				+ ", usuario=" + usuario + ", preguntas=" + preguntas + "]";
+		return "Orientador " + codorientador + ": " + usuario.getNombre() + " (" + "User " + usuario.getCoduser()  + ") - Tlf: " + usuario.getTelefono() + " - E-mail: " + usuario.getEmail() + 			
+				" - Residencia: " + usuario.getResidencia() + "\n\t Antiguedad: " + antiguedad + " meses - Salario: " + salario	+ " €";
 	}
 	
 

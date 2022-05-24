@@ -64,8 +64,8 @@ public class Pregunta implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pregunta [codpregunta=" + codpregunta + ", nivelconcrecion=" + nivelconcrecion + ", textopreg="
-				+ textopreg + ", Orientador=" + Orientador + "]";
+		return "Pregunta "+ codpregunta + ": " + textopreg
+				+ "\n NC: " + nivelconcrecion + " - Orientador " + Orientador.getCodorientador() + " (" + Orientador.getUsuario().getNombre() + ")";
 	}
 
 }

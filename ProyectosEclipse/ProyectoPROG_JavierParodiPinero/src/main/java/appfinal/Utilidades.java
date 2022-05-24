@@ -13,7 +13,7 @@ public class Utilidades {
 		
 		for (Iterator<T> iterator = lista.iterator(); iterator.hasNext();) {
 			T t = (T) iterator.next();
-			str += t + "\n";	
+			str += t + "\n\n";	
 			
 		}
 		

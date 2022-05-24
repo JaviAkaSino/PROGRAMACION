@@ -2,6 +2,8 @@ package appfinal;
 
 import javax.swing.JOptionPane;
 
+import controladores.ControladorPregunta;
+
 public class Programa {
 
 	public static void main(String[] args) {
@@ -30,6 +32,10 @@ public class Programa {
 				break;
 				
 			case 2: 
+				
+				ControladorPregunta cp = new ControladorPregunta();
+				
+				System.out.println(Utilidades.listaString(cp.findAll()));
 				
 				break;
 				
