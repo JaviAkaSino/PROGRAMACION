@@ -22,7 +22,6 @@ public class Utilidades {
 	
 	public static int leerEnteroJOption(String mensaje) { //Lee un entero por JOptionPane con un mensaje dado
 		
-		boolean solicitar = true;
 		int entero;
 		
 		
@@ -35,13 +34,13 @@ public class Utilidades {
 	
 		} catch(NumberFormatException nfe) {
 
-			if ( str == null) { //Si se pulsa cancelar o no se introduce dato
+			if ( str == null) { //Si se pulsa cancelar o X se devuelve -1
 				
-				return -1; //Codigo que no se utilizará como pk
+				return -1; //Código que no se utilizará como pk (comodín)
 			}
 			
 			JOptionPane.showMessageDialog(null, "Introducza un número entero");
-			entero = leerEnteroJOption(mensaje);
+			entero = leerEnteroJOption(mensaje); //Llama recursivamente al método
 			
 		}
 	
@@ -52,19 +51,30 @@ public class Utilidades {
 	
 	public static String pedirStringLimitado(int longitudMaxima, String mensaje) {
 		
-		String str = "";
+		String str = null;
 		boolean repetir = true;
 		
 		do {
-			JOptionPane.showInputDialog(null, mensaje);
+			str = JOptionPane.showInputDialog(null, mensaje);
 		
-			if (str.length() <= longitudMaxima && str != null) { //Si la longitud no sobrepasa la indicada ni es null
+			if(str == null) {
+				return null;
+			}
+			
+			if (str.equals("")){ //Si el campo está vacío
+				
+				JOptionPane.showMessageDialog(null, "El valor introducido no puede estar vacío");
+				
+			}
+			
+			else if (str.length() > longitudMaxima) { //Si la longitud sobrepasa la indicada
+				
+				JOptionPane.showMessageDialog(null, "El valor introducido no puede superar los " 
+						+ longitudMaxima + " caracteres");
+				
+			} else { //Si todo está correcto, sale del bucle
 				
 				repetir = false;
-				
-			} else {
-				
-				JOptionPane.showMessageDialog(null, "El valor introducido no puede superar los " + longitudMaxima + " caracteres ni estar vacío");
 			}
 		
 		} while(repetir);

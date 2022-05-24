@@ -16,6 +16,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	/*referencedCoumnName="codorientador", insertable=false, updatable=false)*/
 	private int coduser;
 
 	private String email;
@@ -66,9 +67,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setTelefono(String telefono) {
-		if(telefono.length()<=12) {
-			this.telefono = telefono;
-		}	
+			this.telefono = telefono;	
 	}
 
 	@Override

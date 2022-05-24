@@ -7,13 +7,13 @@
 		<class>entidades.Orientadore</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/BD_Prog?serverTimezone=Europe/Madrid" />
+				value="jdbc:mysql://192.168.56.101:3306/BD_Prog?serverTimezone=Europe/Madrid" />
 			<property name="javax.persistence.jdbc.user" 
-				value="root" />
+				value="javiakasino" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.password"
-				value="Jana2009narseis8s_" />
+				value="Jana2009" />
 		</properties>
 	</persistence-unit>
 </persistence>
