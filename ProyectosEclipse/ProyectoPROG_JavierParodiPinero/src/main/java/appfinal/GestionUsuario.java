@@ -11,15 +11,15 @@ public class GestionUsuario {
 		
 		ControladorUsuario cu = new ControladorUsuario(); //Inicializa el controlador pertinente
 		
-		String[] listaOpciones = {"Consultar registros","Crear registro","Actualizar registro",
-				"Borrar registro", "Salir"}; //Crea la lista de opciones
+		String[] listaOpciones = {"Consultar usuarios","Crear usuario","Actualizar usuario",
+				"Borrar usuario", "Salir"}; //Crea la lista de opciones
 		
 		boolean seguir = true;
 		do {
 		
 			
 			//Aquí recoge la opción
-			int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción","Opciones", 
+			int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción","Usuarios", 
 					0, 1, null, listaOpciones, null);
 			
 			Usuario u = new Usuario(); //Registro con el que se trabajará
@@ -238,7 +238,7 @@ public static Usuario menuObtenerUsuario() {
 		
 		do {
 			//Aquí recoge la opción
-			int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción","Opciones", 
+			int opcion = JOptionPane.showOptionDialog(null, "Elija el usuario a añadir","Opciones", 
 					0, 1, null, listaOpciones, null);
 			
 			
@@ -296,10 +296,10 @@ public static Usuario menuObtenerUsuario() {
 				u.setTelefono(aux);
 				
 				seguir = false; //Ya esta creado el usuario, salir
-									
-				//Mejor que no se cree si no se hace el orientador
+
 				//cu.crearUsuario(u); //Si todos los datos se han dado, se crea el registro
-					
+				
+				
 				break;
 				
 			case 1: //Cargar registro

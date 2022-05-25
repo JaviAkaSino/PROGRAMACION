@@ -11,15 +11,15 @@ public class GestionOrientador {
 		
 		ControladorOrientador co = new ControladorOrientador(); //Inicializa el controlador pertinente
 		
-		String[] listaOpciones = {"Consultar registros","Crear registro","Actualizar registro",
-				"Borrar registro", "Salir"}; //Crea la lista de opciones
+		String[] listaOpciones = {"Consultar orientadores","Crear orientador","Actualizar orientador",
+				"Borrar orientador", "Salir"}; //Crea la lista de opciones
 		
 		boolean seguir = true;
 		do {
 		
 			
 			//Aquí recoge la opción
-			int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción","Opciones", 
+			int opcion = JOptionPane.showOptionDialog(null, "Seleccione una opción","Orientadores", 
 					0, 1, null, listaOpciones, null);
 			
 			Orientador o = new Orientador(); //Registro con el que se trabajará
@@ -38,8 +38,7 @@ public class GestionOrientador {
 				
 				//Pide los datos de los Orientadors uno a uno, limitando su número de caracteres
 				//El método pedirStringLimitado(int, String), también impide recoger ""
-
-				
+				//Promero introduce el usuario con un menú
 				
 				o.setUsuario(GestionUsuario.menuObtenerUsuario());
 				
