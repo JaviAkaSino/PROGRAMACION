@@ -8,7 +8,8 @@ import entidades.Orientador;
 
 public class ControladorOrientador {
 
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
+	private static EntityManagerFactory entityManagerFactory = Persistence
+			.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
 	private EntityManager em;
 	private Query consulta;
 
@@ -48,14 +49,14 @@ public class ControladorOrientador {
 		this.consulta.setParameter(1, pk);
 		try {
 			aux = (Orientador) consulta.getSingleResult();
-		} catch (NoResultException nre) {	
+		} catch (NoResultException nre) {
 			aux = null;
 		}
 		this.em.close();
 		return aux;
 
 	}
-	
+
 	public Orientador findByCoduser(String coduser) {
 		this.em = entityManagerFactory.createEntityManager();
 		Orientador aux = null;
@@ -63,7 +64,7 @@ public class ControladorOrientador {
 		this.consulta.setParameter(1, coduser);
 		try {
 			aux = (Orientador) consulta.getSingleResult();
-		} catch (NoResultException nre) {	
+		} catch (NoResultException nre) {
 			aux = null;
 		}
 		this.em.close();

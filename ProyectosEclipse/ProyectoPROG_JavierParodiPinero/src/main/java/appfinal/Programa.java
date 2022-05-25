@@ -2,54 +2,49 @@ package appfinal;
 
 import javax.swing.JOptionPane;
 
-import controladores.ControladorPregunta;
-
 public class Programa {
 
 	public static void main(String[] args) {
 
-		String[] listaTablas = {"Usuarios","Orientadores","Preguntas", "Salir"};
-		int opcion; 
+		String[] listaTablas = { "Usuarios", "Orientadores", "Preguntas", "Salir" };
+		int opcion;
 		boolean repetir = true;
-		
+
 		do {
-			
-			opcion = JOptionPane.showOptionDialog(null, "Seleccione una tabla de la base de datos","Tablas", 
-					0, 1, null, listaTablas, null);
-			
-			switch(opcion) {
-			
+
+			opcion = JOptionPane.showOptionDialog(null, "Seleccione una tabla de la base de datos", "Tablas", 0, 1,
+					null, listaTablas, null);
+
+			switch (opcion) {
+
 			case 0:
-					
-				GestionUsuario.menuGestionesUsuario();	
-				
+
+				GestionUsuario.menuGestionesUsuario();
+
 				break;
-				
+
 			case 1:
-				
+
 				GestionOrientador.menuGestionesOrientador();
-				
+
 				break;
-				
-			case 2: 
-				
-				ControladorPregunta cp = new ControladorPregunta();
-				
-				System.out.println(Utilidades.listaString(cp.findAll()));
-				
+
+			case 2:
+
+				GestionPregunta.menuGestionesPregunta();
+
 				break;
-				
-			default: //Para incluir el 3, que es 'Salir' y la 'X'
-				
+
+			default: // Para incluir el 3, que es 'Salir' y la 'X'
+
 				repetir = false;
-				
+
 				break;
-				
+
 			}
 
-		}while(repetir);
-	
-		
+		} while (repetir);
+
 	}
 
 }

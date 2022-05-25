@@ -4,32 +4,31 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the Orientadors database table.
  * 
  */
 @Entity
-@Table(name="Orientadores")
-@NamedQuery(name="Orientador.findAll", query="SELECT o FROM Orientador o")
+@Table(name = "Orientadores")
+@NamedQuery(name = "Orientador.findAll", query = "SELECT o FROM Orientador o")
 public class Orientador implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codorientador;
 
 	private int antiguedad;
 
 	private double salario;
 
-	//uni-directional one-to-one association to Usuario
-	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="coduser")
+	// uni-directional one-to-one association to Usuario
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "coduser")
 	private Usuario usuario;
 
-	//bi-directional many-to-one association to Pregunta
-	@OneToMany(mappedBy="Orientador")
+	// bi-directional many-to-one association to Pregunta
+	@OneToMany(mappedBy = "Orientador")
 	private List<Pregunta> preguntas;
 
 	public Orientador() {
@@ -91,9 +90,9 @@ public class Orientador implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Orientador " + codorientador + ": " + usuario.getNombre() + " (" + "User " + usuario.getCoduser()  + ") - Tlf: " + usuario.getTelefono() + " - E-mail: " + usuario.getEmail() + 			
-				" - Residencia: " + usuario.getResidencia() + "\n\t Antiguedad: " + antiguedad + " meses - Salario: " + salario	+ " €";
+		return "Orientador " + codorientador + ": " + usuario.getNombre() + " (" + "User " + usuario.getCoduser()
+				+ ") - Tlf: " + usuario.getTelefono() + " - E-mail: " + usuario.getEmail() + " - Residencia: "
+				+ usuario.getResidencia() + "\n\t Antiguedad: " + antiguedad + " meses - Salario: " + salario + " €";
 	}
-	
 
 }

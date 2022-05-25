@@ -3,28 +3,27 @@ package entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the preguntas database table.
  * 
  */
 @Entity
-@Table(name="preguntas")
-@NamedQuery(name="Pregunta.findAll", query="SELECT p FROM Pregunta p")
+@Table(name = "preguntas")
+@NamedQuery(name = "Pregunta.findAll", query = "SELECT p FROM Pregunta p")
 public class Pregunta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codpregunta;
 
 	private int nivelconcrecion;
 
 	private String textopreg;
 
-	//bi-directional many-to-one association to Orientador
-	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="codorientador")
+	// bi-directional many-to-one association to Orientador
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "codorientador")
 	private Orientador Orientador;
 
 	public Pregunta() {
@@ -64,8 +63,19 @@ public class Pregunta implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pregunta "+ codpregunta + ": " + textopreg
-				+ "\n NC: " + nivelconcrecion + " - Orientador " + Orientador.getCodorientador() + " (" + Orientador.getUsuario().getNombre() + ")";
+		
+		String datosOrientador = "";
+		
+		if (this.getOrientador()!=null) { //Si tiene orientador asociado añade sus datos
+			
+			datosOrientador = " - Orientador " + Orientador.getCodorientador() + 
+					" (" + Orientador.getUsuario().getNombre() + ")";
+		}
+		
+		
+		return "Pregunta " + codpregunta + ": " + textopreg + "\n NC: " + nivelconcrecion + datosOrientador;
+				
+				
 	}
 
 }

@@ -8,7 +8,8 @@ import entidades.Usuario;
 
 public class ControladorUsuario {
 
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
+	private static EntityManagerFactory entityManagerFactory = Persistence
+			.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
 	private EntityManager em;
 	private Query consulta;
 
@@ -48,14 +49,14 @@ public class ControladorUsuario {
 		this.consulta.setParameter(1, pk);
 		try {
 			aux = (Usuario) consulta.getSingleResult();
-		} catch (NoResultException nre) {	
+		} catch (NoResultException nre) {
 			aux = null;
 		}
 		this.em.close();
 		return aux;
 
 	}
-	
+
 	public Usuario findByTelefono(String telefono) {
 		this.em = entityManagerFactory.createEntityManager();
 		Usuario aux = null;
@@ -63,7 +64,7 @@ public class ControladorUsuario {
 		this.consulta.setParameter(1, telefono);
 		try {
 			aux = (Usuario) consulta.getSingleResult();
-		} catch (NoResultException nre) {	
+		} catch (NoResultException nre) {
 			aux = null;
 		}
 		this.em.close();

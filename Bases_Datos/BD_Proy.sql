@@ -38,14 +38,14 @@ VALUES
 create table if not exists orientadores
 (
 	codorientador int AUTO_INCREMENT,
-    coduser int,
+    coduser int not null,
     antiguedad int,
     salario decimal(7,2),
     
     constraint pk_orientadores primary key (codorientador),
     constraint fk_orientadores_usuarios foreign key (coduser)
 	references usuarios (coduser)
-		on update cascade on delete SET null
+		on update cascade on delete cascade
 );
 
 DELETE FROM orientadores;
@@ -54,7 +54,7 @@ VALUES
 	(1, 1, 57, 2150.23),
     (2, 4, 65, 1865.19),
     (3, 5, 23, 1235.05),
-    (4, null, 14, 1947.98);
+    (4, 7, 14, 1947.98);
 
 
 create table if not exists preguntas

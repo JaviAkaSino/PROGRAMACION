@@ -6,13 +6,13 @@
 		<class>entidades.Usuario</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://192.168.56.101:3306/BD_Prog?serverTimezone=Europe/Madrid" />
+				value="jdbc:mysql://localhost:3306/BD_Prog?serverTimezone=Europe/Madrid" />
 			<property name="javax.persistence.jdbc.user" 
-				value="javiakasino" />
+				value="root" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.password"
-				value="Jana2009" />
+				value="Jana2009narseis8s_" />
 			<property name="javax.persistence.schema-generation.drop-source" value="script-then-metadata"/>
 		</properties>
 	</persistence-unit>

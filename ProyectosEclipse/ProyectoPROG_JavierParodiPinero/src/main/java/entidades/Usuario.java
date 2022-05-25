@@ -3,20 +3,19 @@ package entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the usuarios database table.
  * 
  */
 @Entity
-@Table(name="usuarios")
-@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
+@Table(name = "usuarios")
+@NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	/*referencedCoumnName="codorientador", insertable=false, updatable=false)*/
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/* referencedCoumnName="codorientador", insertable=false, updatable=false) */
 	private int coduser;
 
 	private String email;
@@ -67,12 +66,13 @@ public class Usuario implements Serializable {
 	}
 
 	public void setTelefono(String telefono) {
-			this.telefono = telefono;	
+		this.telefono = telefono;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario " + coduser + ": " + nombre + " - Tlf: " + telefono + " - E-mail: " + email + " - Residencia: " + residencia;
-	}		
+		return "Usuario " + coduser + ": " + nombre + " - Tlf: " + telefono + " - E-mail: " + email + " - Residencia: "
+				+ residencia;
+	}
 
 }

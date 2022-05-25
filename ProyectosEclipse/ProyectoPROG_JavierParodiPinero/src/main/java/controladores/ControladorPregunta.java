@@ -12,7 +12,8 @@ import entidades.Pregunta;
 
 public class ControladorPregunta {
 
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
+	private static EntityManagerFactory entityManagerFactory = Persistence
+			.createEntityManagerFactory("ProyectoPROG_JavierParodiPinero");
 	private EntityManager em;
 	private Query consulta;
 
@@ -52,14 +53,13 @@ public class ControladorPregunta {
 		this.consulta.setParameter(1, pk);
 		try {
 			aux = (Pregunta) consulta.getSingleResult();
-		} catch (NoResultException nre) {	
+		} catch (NoResultException nre) {
 			aux = null;
 		}
 		this.em.close();
 		return aux;
 
 	}
-
 
 	public List<Pregunta> findAll() {
 		this.em = entityManagerFactory.createEntityManager();
