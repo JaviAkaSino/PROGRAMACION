@@ -9,7 +9,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name = "Orientadores")
+@Table(name = "orientadores")
 @NamedQuery(name = "Orientador.findAll", query = "SELECT o FROM Orientador o")
 public class Orientador implements Serializable {
 	private static final long serialVersionUID = 1L;

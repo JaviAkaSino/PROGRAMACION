@@ -10,10 +10,16 @@ public class Utilidades {
 
 		String str = "";
 
-		for (Iterator<T> iterator = lista.iterator(); iterator.hasNext();) {
-			T t = (T) iterator.next();
-			str += t + "\n\n";
+		try {
 
+			for (Iterator<T> iterator = lista.iterator(); iterator.hasNext();) {
+				T t = (T) iterator.next();
+				str += t + "\n\n";
+
+			}
+
+		} catch (NullPointerException npe) {
+			return str;
 		}
 
 		return str;
