@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -13,137 +11,175 @@ import javax.swing.JTextArea;
 
 public class PanelCalculadora extends JPanel implements ActionListener {
 
-	private Botones botones;
-	private JTextArea areaTexto;
-	private int tipoOperacion;
-	private String operador = "";
-	private String segundo = "0";
-	private int operando1, operando2;
+    private Botones botones;
+    private JTextArea areaTexto;
+    private String operador = "";
+    private double operando1, operando2;
 
-	public PanelCalculadora() {
-		initComponents();
-		this.tipoOperacion = -1;
-	}
+    public PanelCalculadora() {
+        initComponents();
+    }
 
-	// Se inicializan los componentes gráficos y se colocan en el panel
-	private void initComponents() {
+    // Se inicializan los componentes gráficos y se colocan en el panel
+    private void initComponents() {
 
-		// Creamos el panel de botones
-		botones = new Botones();
+        // Creamos el panel de botones
+        botones = new Botones();
 
-		// Creamos el área de texto
-		areaTexto = new JTextArea(10, 50);
+        // Creamos el área de texto
+        areaTexto = new JTextArea(10, 50);
 
-		areaTexto.setEditable(false);
-		areaTexto.setBackground(Color.white);
+        areaTexto.setEditable(false);
+        areaTexto.setBackground(Color.white);
 
-		// Establecemos layout del panel principal
-		this.setLayout(new BorderLayout());
-		// Colocamos la botonera y el área texto
-		this.add(areaTexto, BorderLayout.NORTH);
-		this.add(botones, BorderLayout.SOUTH);
+        // Establecemos layout del panel principal
+        this.setLayout(new BorderLayout());
+        // Colocamos la botonera y el área texto
+        this.add(areaTexto, BorderLayout.NORTH);
+        this.add(botones, BorderLayout.SOUTH);
 
-		for (JButton boton : this.botones.getListaBotones()) {
-			boton.addActionListener(this);
-		}
+        for (JButton boton : this.botones.getListaBotones()) {
+            boton.addActionListener(this);
+        }
 
-	}
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent ae) {
+    @Override
+    public void actionPerformed(ActionEvent ae) {
 
-		String pulsado;
+        String pulsado; //Guardará el valor del botón pulsado
 
-		// Se obtiene el objeto que desencadena el evento
-		Object o = ae.getSource();
+        // Se obtiene el objeto que desencadena el evento
+        Object o = ae.getSource();
 
-		// Si es un botón
-		if (o instanceof JButton) {
+        // Si es un botón
+        if (o instanceof JButton) {
 
-			try {
-				
-				pulsado = ((JButton) o).getText();
+            try { //Controla las posibles excepciones
 
-				if ("0123456789".contains(pulsado)) { // Si es un número
+                pulsado = ((JButton) o).getText(); //Guarda el valor del botón pulsado
 
-					areaTexto.setText(areaTexto.getText() + ((JButton) o).getText());
+                if ("0123456789.".contains(pulsado)) { // Si es un número o .
+                    //Guarda su valor en el textArea
+                    areaTexto.setText(areaTexto.getText() + ((JButton) o).getText());
 
-					// Deb
-					System.out.println(areaTexto.getText());
+                    // Debug
+                    System.out.println(areaTexto.getText());
 
-				} else if ("+-/*".contains(pulsado)) { // Si es un operador
+                } else if (pulsado.equals("=")) { // Se pulsa =
 
-					operando1 = Integer.parseInt(areaTexto.getText());// Guarda el operando 1
+                    //Si no hay valores, el resultado es 0
+                    if (areaTexto.getText().equals("") && operando1 == 0 && operando2 == 0) {
+                        areaTexto.setText("0");
+                    }
+                    
+                        try{
+                            operando2 = Double.parseDouble(areaTexto.getText());// Guarda el operando 2
+                            
+                        }catch(NumberFormatException nfe){
+                            operando2=0;
+                        }
+                        
+                        
+                    
+                    
 
-					operador = pulsado; // Guarda el operador
+                    switch (operador) {
 
-					areaTexto.setText("");// Se limpia la pantalla y busca el operando 2
+                        case "+": //Suma
 
+                            areaTexto.setText(Double.toString(operando1 + operando2));
+                            System.out.println("SUMA");
 
-				} else if (pulsado.equals("=")) { // Se pulsa =
+                            break;
 
-					operando2 = Integer.parseInt(areaTexto.getText());// Guarda el operando 2
+                        case "-": //Resta
 
-					System.out.println("Igual");
+                            areaTexto.setText(Double.toString(operando1 - operando2));
+                            System.out.println("RESTA");
 
-					switch (operador) {
+                            break;
 
-					case "+":
+                        case "*": //Multiplicación
 
-						areaTexto.setText(Integer.toString(operando1 + operando2));
-						System.out.println("SUMA");
-											
-						break;
+                            areaTexto.setText(Double.toString(operando1 * operando2));
+                            System.out.println("MULTIPLICACIÓN");
 
-					case "-":
+                            break;
 
-						areaTexto.setText(Integer.toString(operando1 - operando2));
-						System.out.println("RESTA");
-						
-						break;
+                        case "/": //División
 
-					case "*":
-						
-						areaTexto.setText(Integer.toString(operando1 * operando2));
-						System.out.println("MULTIPLICACIÓN");
+                            if (operando2 != 0) { // COntrola las divisiones entre 0
 
-						break;
+                                areaTexto.setText(Double.toString(operando1 / operando2));
 
-					case "/":
-						
-						areaTexto.setText(Integer.toString(operando1 / operando2));
-						System.out.println("DIVISIÓN");
+                            } else {
 
-						break;
+                                areaTexto.setText("Indeterminación (división entre 0)");
+                            }
 
-					}
+                            break;
 
-				} else { // Se pulsa C
-					areaTexto.setText("");
-					System.out.println("C");
-				}
-				
-			} catch (NumberFormatException nfe) {
-				
-				areaTexto.setText("");
-				System.out.println("ERROR");
-				
-			}
+                        case "x²": //Cuadrado
 
-			
+                            areaTexto.setText(Double.toString(Math.pow(operando1, 2)));
+                            System.out.println("CUADRADO");
 
-		}
+                            break;
 
-		/*
-		 * if (o == botones.getListaBotones()[0]) {
-		 * 
-		 * if (!areaTexto.getText().equals("")) {
-		 * 
-		 * areaTexto.setText(areaTexto.getText() + "0"); }
-		 * 
-		 * }
-		 */
+                        case "V": //Cuadrado
 
-	}
+                            areaTexto.setText(Double.toString(Math.sqrt(operando1)));
+                            System.out.println("RAIZ CUADRADA");
+
+                            break;
+
+                    }
+
+                    //Se vacían los operandos y el operador para la nueva cuenta
+                    //Se mantiene el valor del areaTexto por si se quiere seguir operando
+                    operando1 = 0;
+                    operando2 = 0;
+                    operador = "";
+
+                } else if (pulsado.equals("C")) { // Se pulsa C - Borrar todo
+                    areaTexto.setText("");
+                    operando1 = 0;
+                    operando2 = 0;
+                    operador = "";
+
+                } else if (pulsado.equals("<-")) { // Borra 1
+                    if (areaTexto.getText().length() > 1) {
+
+                        areaTexto.setText(areaTexto.getText().substring(0, areaTexto.getText().length() - 1));
+
+                    } else {
+
+                        areaTexto.setText("");
+                    }
+
+                } else { // Si es un operador ("+-/*x²V".contains(pulsado)) 
+
+                    operando1 = Double.parseDouble(areaTexto.getText());// Guarda el operando 1
+
+                    operador = pulsado; // Guarda el operador
+
+                    areaTexto.setText("");// Se limpia el textArea y busca el operando 2
+
+                }
+
+            } catch (NumberFormatException nfe) {
+
+                areaTexto.setText("ERROR");
+                operando1 = 0;
+                operando2 = 0;
+                operador = "";
+                System.out.println("ERROR");
+
+            }
+
+        }
+
+    }
 
 }

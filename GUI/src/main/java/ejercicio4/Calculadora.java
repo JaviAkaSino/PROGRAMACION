@@ -5,6 +5,9 @@
  */
 package ejercicio4;
 
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
@@ -15,15 +18,17 @@ public class Calculadora {
 
     public static void main(String[] args) {
 
-
         // Construimos la ventana
         JFrame frame = new JFrame("Calculadora");
 
-        // La ventana se puede redimensionar
-        frame.setResizable(true);
+        // La ventana no se puede redimensionar
+        frame.setResizable(false);
 
         // Posición de la ventana
-        frame.setLocationRelativeTo(null);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
 
         // Incluimos el panel en la ventana
         frame.add(new PanelCalculadora());
@@ -38,5 +43,5 @@ public class Calculadora {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
-    
+
 }
