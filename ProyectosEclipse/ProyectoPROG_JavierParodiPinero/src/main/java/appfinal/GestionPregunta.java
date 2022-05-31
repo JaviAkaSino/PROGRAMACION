@@ -36,6 +36,8 @@ public class GestionPregunta {
 				// El método pedirStringLimitado(int, String), también impide recoger ""
 				// Primero introduce el usuario con un menú
 
+				
+				//Asignar pregunta  alista del orientador
 				p.setOrientador(GestionOrientador.menuObtenerOrientador());
 
 				if (p.getOrientador() == null) { // Si se pulsa cancelar o X en la selección del usuario
